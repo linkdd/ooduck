@@ -191,6 +191,11 @@ static void Object_unref (void *_self)
     }
 }
 
+static bool Object_equal (const void *_self, const void *other)
+{
+    return (_self == other);
+}
+
 static void *VTableEntry_constructor (void *_self, va_list *app)
 {
     struct VTableEntry *self = _self;

@@ -7,6 +7,7 @@ static void *Object_constructor (void *_self, va_list *app);
 static void *Object_destructor (void *_self);
 static void *Object_ref (void *_self);
 static void Object_unref (void *_self);
+static bool Object_equal (const void *_self, const void *_other);
 
 static void *VTableEntry_constructor (void *_self, va_list *app);
 static void *VTableEntry_destructor (void *_self);
@@ -42,14 +43,15 @@ static struct Class object[] =
 };
 
 /* static vtables */
-#define N_OBJECT_VTABLE_STATIC_ENTRIES 4
+#define N_OBJECT_VTABLE_STATIC_ENTRIES 5
 
 static struct VTableEntry ObjectVTable[N_OBJECT_VTABLE_STATIC_ENTRIES] =
 {
     { { object + 2 }, "__constructor__", Object_constructor },
     { { object + 2 }, "__destructor__", Object_destructor },
     { { object + 2 }, "ref", Object_ref },
-    { { object + 2 }, "unref", Object_unref }
+    { { object + 2 }, "unref", Object_unref },
+    { { object + 2 }, "__equal__", Object_equal }
 };
 
 #define N_VTABLEENTRY_VTABLE_STATIC_ENTRIES 3

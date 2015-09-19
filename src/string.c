@@ -2,6 +2,7 @@
 #include <ooduck/string.h>
 #include <ooduck/_defs/string.h>
 #include <ooduck/_priv/string.h>
+#include <ooduck/asprintf.h>
 
 static const void *_String = NULL;
 
@@ -14,7 +15,7 @@ const void *String (void)
             Object, sizeof (struct String),
             "__constructor__", String_constructor,
             "__destructor__", String_destructor,
-            "equal", String_equal,
+            "__equal__", String_equal,
             "copy", String_copy,
             "format", String_format,
             "len", String_len,

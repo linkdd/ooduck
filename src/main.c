@@ -13,5 +13,7 @@ int main (int argc, char *argv[])
 
     printf ("%s\n", cstr (str));
 
+    delete (str);
+
     return 0;
 }

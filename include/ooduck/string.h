@@ -5,10 +5,6 @@
 
 const void *String (void);
 
-typedef void * (*String_constructor_m) (void *, va_list *);
-typedef void * (*String_destructor_m) (void *);
-
-typedef bool  (*String_equal_m) (const void *, const void *);
 typedef void * (*String_copy_m) (const void *);
 typedef void  (*String_format_m) (void *, const char *, ...);
 typedef size_t  (*String_len_m) (const void *);
