@@ -32,7 +32,7 @@ const void *String (void)
 static void *String_constructor (void *_self, va_list *app)
 {
     char *data = va_arg (*app, char *);
-    Class_constructor_m ctor = method (super (classOf (_self)), "__constructor__");
+    Class_constructor_m ctor = method (super (String ()), "__constructor__");
     struct String *self = ctor (_self, app);
 
     if (data)

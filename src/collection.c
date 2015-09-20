@@ -12,9 +12,10 @@ const void *Collection (void)
     {
         _Collection = new (
             Class, "Collection",
-            Object, sizeof (struct Collection),
+            Iterable (), sizeof (struct Collection),
             "__constructor__", Collection_constructor,
             "__destructor__", Collection_destructor,
+            "__next__", Collection_next,
             "clear", Collection_clear,
             "add", Collection_add,
             "del", Collection_del,
@@ -47,7 +48,7 @@ const void *Item (void)
 
 static void *Collection_constructor (void *_self, va_list *app)
 {
-    Class_constructor_m ctor = method (super (classOf (_self)), "__constructor__");
+    Class_constructor_m ctor = method (super (Collection ()), "__constructor__");
     struct Collection *self = ctor (_self, app);
 
     self->items = NULL;
@@ -66,31 +67,43 @@ static void *Collection_destructor (void *_self)
     return self;
 }
 
+static void *Collection_next (void *_self, const void *iterator)
+{
+    struct Collection *self = cast (Collection (), _self);
+    Iterator_get_m getm = method (classOf (iterator), "get");
+    void *current = getm (iterator);
+
+    if (current != NULL)
+    {
+        struct Item *item = cast (Item (), getm (iterator));
+
+        return item->next;
+    }
+
+    return self->items;
+}
+
 static void Collection_clear (void *_self)
 {
     struct Collection *self = cast (Collection (), _self);
 
     if (self->items != NULL)
     {
-        while (self->head != self->tail)
+        while (self->items != NULL)
         {
             Collection_del (self, Item_deref (self->items));
         }
-        
-        /* only one element left in the collection */
-        Collection_del (self, Item_deref (self->items));
-
-        self->items = NULL;
     }
 }
 
 static void Collection_add (void *_self, const void *item)
 {
     struct Collection *self = cast (Collection (), _self);
-    void *itemobj = new (Item (), item);
 
     if (!Collection_contains (self, item))
     {
+        void *itemobj = new (Item (), item);
+
         if (self->items == NULL)
         {
             self->items = itemobj;
@@ -117,7 +130,7 @@ static void Collection_del (void *_self, const void *item)
 
     if (itemobj != NULL)
     {
-        if (itemobj->prev != NULL)
+        if (itemobj != self->head)
         {
             itemobj->prev->next = itemobj->next;
         }
@@ -126,13 +139,23 @@ static void Collection_del (void *_self, const void *item)
             self->head = itemobj->next;
         }
 
-        if (itemobj->next != NULL)
+        if (itemobj != self->tail)
         {
             itemobj->next->prev = itemobj->prev;
         }
         else
         {
             self->tail = itemobj->prev;
+        }
+
+        self->items = self->head;
+
+        if (self->head == NULL || self->tail == NULL)
+        {
+            self->items = NULL;
+
+            self->head = self->items;
+            self->tail = self->items;
         }
 
         delete (itemobj);
@@ -167,17 +190,18 @@ static struct Item *_Collection_getitem (void *_self, const void *item)
 
 static void *Item_constructor (void *_self, va_list *app)
 {
-    Class_constructor_m ctor = method (super (classOf (_self)), "__constructor__");
+    void *obj = va_arg (*app, void *);
+    Class_constructor_m ctor = method (super (Item ()), "__constructor__");
     struct Item *self = ctor (_self, app);
 
-    self->itptr = ref (va_arg (*app, void *));
+    self->itptr = ref (obj);
 
     return self;
 }
 
 static void *Item_destructor (void *_self)
 {
-    struct Item *self = cast (Collection (), _self);
+    struct Item *self = cast (Item (), _self);
 
     unref (self->itptr);
 
@@ -186,7 +210,7 @@ static void *Item_destructor (void *_self)
 
 static void *Item_deref (void *_self)
 {
-    struct Item *self = cast (Collection (), _self);
+    struct Item *self = cast (Item (), _self);
 
     return self->itptr;
 }

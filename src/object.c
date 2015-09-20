@@ -101,7 +101,7 @@ void *method (const void *_class, const char *name)
         }
     }
 
-    if (class->super == Object)
+    if (class == Object)
     {
         return NULL;
     }
@@ -112,6 +112,7 @@ void *method (const void *_class, const char *name)
 const void *classOf (const void *_self)
 {
     const struct Object *self = _self;
+    assert (self->class != NULL);
     return self->class;
 }
 

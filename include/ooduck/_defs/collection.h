@@ -3,7 +3,7 @@
 
 /* definitions */
 
-#include <ooduck/_defs/object.h>
+#include <ooduck/_defs/iterable.h>
 
 struct Item
 {
@@ -17,7 +17,7 @@ struct Item
 
 struct Collection
 {
-    struct Object _;
+    struct Iterable _;
 
     struct Item *items;
     struct Item *head;

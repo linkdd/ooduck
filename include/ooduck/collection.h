@@ -1,7 +1,7 @@
 #ifndef __OODUCK_COLLECTION_H
 #define __OODUCK_COLLECTION_H
 
-#include <ooduck/object.h>
+#include <ooduck/iterable.h>
 
 const void *Collection (void);
 
@@ -12,6 +12,6 @@ typedef bool (*Collection_contains_m) (void *, const void *);
 
 const void *Item (void);
 
-typedef void (*Item_deref_m) (void *);
+typedef void *(*Item_deref_m) (void *);
 
 #endif /* __OODUCK_COLLECTION_H */

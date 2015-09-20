@@ -6,6 +6,7 @@
 static void *Collection_constructor (void *_self, va_list *app);
 static void *Collection_destructor (void *_self);
 
+static void *Collection_next (void *_self, const void *iterator);
 static void Collection_clear (void *_self);
 static void Collection_add (void *_self, const void *item);
 static void Collection_del (void *_self, const void *item);

@@ -8,6 +8,11 @@ CC = gcc
 CFLAGS = -I include -c
 LDFLAGS = -O2 -Wall
 
+ifeq ($(DEBUG), 1)
+	CFLAGS += -g
+	LDFLAGS += -g
+endif
+
 .PHONY: all
 all: $(EXEC)
 
