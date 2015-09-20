@@ -8,8 +8,9 @@
 #include <string.h>
 #include <assert.h>
 
-extern const void *Object;
-extern const void *Class;
+const void *Object (void);
+const void *VTableEntry (void);
+const void *Class (void);
 
 /* dynamic API */
 typedef void * (*Object_ref_m) (void *);

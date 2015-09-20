@@ -3,45 +3,60 @@
 #include <ooduck/_defs/object.h>
 #include <ooduck/_priv/object.h>
 
-const void *Object = object;
-const void *VTableEntry = object + 1;
-const void *Class = object + 2;
+static const void *_Object = object;
+static const void *_VTableEntry = object + 1;
+static const void *_Class = object + 2;
 
 void ooduck_init (void)
 {
     int i;
 
-    struct VTableEntry **_Object = calloc (
+    struct VTableEntry **VObject = calloc (
         N_OBJECT_VTABLE_STATIC_ENTRIES + 1,
         sizeof (struct VTableEntry *)
     );
-    struct VTableEntry **_VTableEntry = calloc (
+    struct VTableEntry **VVTableEntry = calloc (
         N_VTABLEENTRY_VTABLE_STATIC_ENTRIES + 1,
         sizeof (struct VTableEntry *)
     );
-    struct VTableEntry **_Class = calloc (
+    struct VTableEntry **VClass = calloc (
         N_CLASS_VTABLE_STATIC_ENTRIES + 1,
         sizeof (struct VTableEntry *)
     );
 
     for (i = 0; i < N_OBJECT_VTABLE_STATIC_ENTRIES; ++i)
     {
-        _Object[i] = &(ObjectVTable[i]);
+        VObject[i] = &(ObjectVTable[i]);
     }
 
     for (i = 0; i < N_VTABLEENTRY_VTABLE_STATIC_ENTRIES; ++i)
     {
-        _VTableEntry[i] = &(VTableEntryVTable[i]);
+        VVTableEntry[i] = &(VTableEntryVTable[i]);
     }
 
     for (i = 0; i < N_CLASS_VTABLE_STATIC_ENTRIES; ++i)
     {
-        _Class[i] = &(ClassVTable[i]);
+        VClass[i] = &(ClassVTable[i]);
     }
 
-    object[0].vtable = _Object;
-    object[1].vtable = _VTableEntry;
-    object[2].vtable = _Class;
+    object[0].vtable = VObject;
+    object[1].vtable = VVTableEntry;
+    object[2].vtable = VClass;
+}
+
+const void *Object (void)
+{
+    return _Object;
+}
+
+const void *VTableEntry (void)
+{
+    return _VTableEntry;
+}
+
+const void *Class (void)
+{
+    return _Class;
 }
 
 bool isA (const void *_self, const void *class)
@@ -55,11 +70,11 @@ bool isOf (const void *_self, const void *class)
     {
         const struct Class *selfClass = classOf (_self);
 
-        if (selfClass != Object)
+        if (selfClass != Object ())
         {
             while (selfClass != class)
             {
-                if (selfClass != Object)
+                if (selfClass != Object ())
                 {
                     selfClass = super (selfClass);
                 }
@@ -90,7 +105,7 @@ const void *super (const void *_class)
 
 void *method (const void *_class, const char *name)
 {
-    const struct Class *class = cast (Class, _class);
+    const struct Class *class = cast (Class (), _class);
     int i;
 
     for (i = 0; class->vtable[i] != NULL; ++i)
@@ -101,7 +116,7 @@ void *method (const void *_class, const char *name)
         }
     }
 
-    if (class == Object)
+    if (class == Object ())
     {
         return NULL;
     }
@@ -124,7 +139,7 @@ size_t sizeOf (const void *_self)
 
 void *new (const void *_class, ...)
 {
-    const struct Class *class = cast (Class, _class);
+    const struct Class *class = cast (Class (), _class);
     Class_constructor_m ctor = NULL;
     struct Object *obj = NULL;
     va_list ap;
@@ -164,7 +179,7 @@ void unref (void *_self)
 /* implementation */
 static void *Object_constructor (void *_self, va_list *app)
 {
-    struct Object *self = cast (Object, _self);
+    struct Object *self = cast (Object (), _self);
     self->refcount = 1;
     return _self;
 }
@@ -176,14 +191,14 @@ static void *Object_destructor (void *_self)
 
 static void *Object_ref (void *_self)
 {
-    struct Object *self = cast (Object, _self);
+    struct Object *self = cast (Object (), _self);
     self->refcount++;
     return self;
 }
 
 static void Object_unref (void *_self)
 {
-    struct Object *self = cast (Object, _self);
+    struct Object *self = cast (Object (), _self);
     self->refcount--;
 
     if (self->refcount <= 0)
@@ -209,7 +224,7 @@ static void *VTableEntry_constructor (void *_self, va_list *app)
 
 static void *VTableEntry_destructor (void *_self)
 {
-    struct VTableEntry *self = cast (VTableEntry, _self);
+    struct VTableEntry *self = cast (VTableEntry (), _self);
 
     free (self->name);
 
@@ -226,7 +241,7 @@ static struct VTableEntry **VTableEntry_add (
         entries,
         sizeof (struct VTableEntry *) * (nentries + 1)
     );
-    new_entries[nentries - 1] = new (VTableEntry, name, func);
+    new_entries[nentries - 1] = new (VTableEntry (), name, func);
     new_entries[nentries] = NULL;
 
     return new_entries;
@@ -240,7 +255,7 @@ static void *Class_constructor (void *_self, va_list *app)
     char *name = NULL;
 
     self->name = va_arg (*app, char *);
-    self->super = cast (Class, va_arg (*app, void *));
+    self->super = cast (Class (), va_arg (*app, void *));
     self->size = va_arg (*app, size_t);
 
     while ((name = va_arg (*app, char *)) != NULL)
@@ -256,7 +271,7 @@ static void *Class_constructor (void *_self, va_list *app)
 
 static void *Class_destructor (void *_self)
 {
-    struct Class *self = cast (Class, _self);
+    struct Class *self = cast (Class (), _self);
     fprintf (stderr, "%s: cannot destroy class\n", self->name);
     return NULL;
 }

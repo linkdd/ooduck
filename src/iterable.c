@@ -11,8 +11,8 @@ const void *Iterable (void)
     if (_Iterable == NULL)
     {
         _Iterable = new (
-            Class, "Iterable",
-            Object, sizeof (struct Iterable),
+            Class (), "Iterable",
+            Object (), sizeof (struct Iterable),
             "__constructor__", Iterable_constructor,
             "__destructor__", Iterable_destructor,
             "__next__", Iterable_next,
@@ -28,8 +28,8 @@ const void *Iterator (void)
     if (_Iterator == NULL)
     {
         _Iterator = new (
-            Class, "Iterator",
-            Object, sizeof (struct Iterator),
+            Class (), "Iterator",
+            Object (), sizeof (struct Iterator),
             "__constructor__", Iterator_constructor,
             "__destructor__", Iterator_destructor,
             "next", Iterator_next,

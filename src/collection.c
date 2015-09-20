@@ -11,7 +11,7 @@ const void *Collection (void)
     if (_Collection == NULL)
     {
         _Collection = new (
-            Class, "Collection",
+            Class (), "Collection",
             Iterable (), sizeof (struct Collection),
             "__constructor__", Collection_constructor,
             "__destructor__", Collection_destructor,
@@ -32,8 +32,8 @@ const void *Item (void)
     if (_Item == NULL)
     {
         _Item = new (
-            Class, "Item",
-            Object, sizeof (struct Item),
+            Class (), "Item",
+            Object (), sizeof (struct Item),
             "__constructor__", Item_constructor,
             "__destructor__", Item_destructor,
             "deref", Item_deref,

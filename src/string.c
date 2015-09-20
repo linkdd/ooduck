@@ -11,8 +11,8 @@ const void *String (void)
     if (_String == NULL)
     {
         _String = new (
-            Class, "String",
-            Object, sizeof (struct String),
+            Class (), "String",
+            Object (), sizeof (struct String),
             "__constructor__", String_constructor,
             "__destructor__", String_destructor,
             "__equal__", String_equal,
