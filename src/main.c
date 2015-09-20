@@ -36,8 +36,13 @@ int main (int argc, char *argv[])
     del (col, str);
     assert (!contains (col, str));
 
-    add (col, new (String (), "Hello"));
-    add (col, new (String (), "world!"));
+    item = new (String (), "Hello");
+    add (col, item);
+    unref (item);
+
+    item = new (String (), "world!");
+    add (col, item);
+    unref (item);
 
     it = new (Iterator (), col);
 
@@ -48,6 +53,7 @@ int main (int argc, char *argv[])
 
     printf ("\n");
 
+    delete (it);
     delete (str);
     delete (col);
 
