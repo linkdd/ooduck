@@ -14,6 +14,7 @@ int main (int argc, char *argv[])
     void *col = NULL;
     void *str = NULL;
     void *it = NULL;
+    void *item = NULL;
 
     ooduck_init ();
 
@@ -40,9 +41,9 @@ int main (int argc, char *argv[])
 
     it = new (Iterator (), col);
 
-    while ((str = next (it)) != NULL)
+    while ((item = next (it)) != NULL)
     {
-        printf ("%s ", cstr (deref (str)));
+        printf ("%s ", cstr (deref (item)));
     }
 
     printf ("\n");
