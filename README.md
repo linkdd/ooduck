@@ -7,6 +7,7 @@
 OODuck is an **O**bject **O**riented framework in C with **D**uck typing support.
 
 It is inspired of the famous [ooc.pdf](http://www.cs.rit.edu/~ats/books/ooc.pdf)
+and is using [exceptions4c](https://github.com/guillermocalvo/exceptions4c)
 
 ## Build example
 
