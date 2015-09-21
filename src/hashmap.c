@@ -17,6 +17,7 @@ const void *Hashmap (void)
             "next", Hashmap_next,
             "get", Hashmap_get,
             "set", Hashmap_set,
+            "del", Hashmap_del,
             "keys", Hashmap_keys,
             "values", Hashmap_values,
             NULL
@@ -97,13 +98,26 @@ static void Hashmap_set (void *_self, const void *key, void *value)
 
     if (contains (self->keys, key))
     {
-        void *oldvalue = Hashmap_get (self, key);
-        del (self->keys, key);
-        del (self->values, oldvalue);
+        Hashmap_del (self, key);
     }
 
     add (self->keys, key);
     add (self->values, value);
+}
+
+static void Hashmap_del (void *_self, const void *key)
+{
+    struct Hashmap *self = cast (Hashmap (), _self);
+
+    Collection_contains_m contains = method (classOf (self->keys), "contains");
+    Collection_del_m del = method (classOf (self->keys), "del");
+
+    if (contains (self->keys, key))
+    {
+        void *oldvalue = Hashmap_get (self, key);
+        del (self->keys, key);
+        del (self->values, oldvalue);
+    }
 }
 
 static void *Hashmap_keys (const void *_self)
