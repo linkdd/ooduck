@@ -21,3 +21,7 @@ You can build and run the example program :
 ## Documentation
 
 Documentation isn't available yet.
+
+## License
+
+OODuck is released under the terms of the MIT license. See the LICENSE file for details.
