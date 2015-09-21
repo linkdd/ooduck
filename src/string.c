@@ -15,7 +15,7 @@ const void *String (void)
             Object (), sizeof (struct String),
             "__constructor__", String_constructor,
             "__destructor__", String_destructor,
-            "__equal__", String_equal,
+            "equal", String_equal,
             "copy", String_copy,
             "format", String_format,
             "len", String_len,

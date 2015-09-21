@@ -15,7 +15,7 @@ const void *Iterable (void)
             Object (), sizeof (struct Iterable),
             "__constructor__", Iterable_constructor,
             "__destructor__", Iterable_destructor,
-            "__next__", Iterable_next,
+            "next", Iterable_next,
             NULL
         );
     }
@@ -93,7 +93,7 @@ static void *Iterator_destructor (void *_self)
 static void *Iterator_next (void *_self)
 {
     struct Iterator *self = cast (Iterator (), _self);
-    Iterable_next_m nextm = method (classOf (self->iterable), "__next__");
+    Iterable_next_m nextm = method (classOf (self->iterable), "next");
 
     self->current = nextm (self->iterable, self);
 

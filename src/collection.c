@@ -15,7 +15,7 @@ const void *Collection (void)
             Iterable (), sizeof (struct Collection),
             "__constructor__", Collection_constructor,
             "__destructor__", Collection_destructor,
-            "__next__", Collection_next,
+            "next", Collection_next,
             "clear", Collection_clear,
             "add", Collection_add,
             "del", Collection_del,
@@ -175,7 +175,7 @@ static struct Item *_Collection_getitem (void *_self, const void *item)
     while (tmp != NULL)
     {
         void *obj = Item_deref (tmp);
-        Object_equal_m cmp = method (classOf (obj), "__equal__");
+        Object_equal_m cmp = method (classOf (obj), "equal");
 
         if (cmp (obj, item))
         {

@@ -51,16 +51,15 @@ static struct VTableEntry ObjectVTable[N_OBJECT_VTABLE_STATIC_ENTRIES] =
     { { object + 2 }, "__destructor__", Object_destructor },
     { { object + 2 }, "ref", Object_ref },
     { { object + 2 }, "unref", Object_unref },
-    { { object + 2 }, "__equal__", Object_equal }
+    { { object + 2 }, "equal", Object_equal }
 };
 
-#define N_VTABLEENTRY_VTABLE_STATIC_ENTRIES 3
+#define N_VTABLEENTRY_VTABLE_STATIC_ENTRIES 2
 
 static struct VTableEntry VTableEntryVTable[N_VTABLEENTRY_VTABLE_STATIC_ENTRIES] =
 {
     { { object + 2 }, "__constructor__", VTableEntry_constructor },
-    { { object + 2 }, "__destructor__", VTableEntry_destructor },
-    { { object + 2 }, "add", VTableEntry_add },
+    { { object + 2 }, "__destructor__", VTableEntry_destructor }
 };
 
 #define N_CLASS_VTABLE_STATIC_ENTRIES 2

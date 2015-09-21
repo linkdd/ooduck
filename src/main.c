@@ -18,21 +18,21 @@ int main (int argc, char *argv[])
 
     ooduck_init ();
 
-    cstr = method (String (), "cstr");
-    add = method (Collection (), "add");
-    del = method (Collection (), "del");
-    contains = method (Collection (), "contains");
-    next = method (Iterator (), "next");
-    deref = method (Item (), "deref");
-
     col = new (Collection ());
     str = new (String (), "Hello world!");
 
+    /* test class hierarchy */
     assert (isA (str, String ()));
     assert (isOf (col, Iterable ()));
 
+    /* test collection */
+    contains = method (classOf (col), "contains");
+
+    add = method (classOf (col), "add");
     add (col, str);
     assert (contains (col, str));
+
+    del = method (classOf (col), "del");
     del (col, str);
     assert (!contains (col, str));
 
@@ -44,11 +44,19 @@ int main (int argc, char *argv[])
     add (col, item);
     unref (item);
 
+    /* test iterable */
     it = new (Iterator (), col);
+    next = method (classOf (it), "next");
 
     while ((item = next (it)) != NULL)
     {
-        printf ("%s ", cstr (deref (item)));
+        void *itemstr = NULL;
+
+        deref = method (classOf (item), "deref");
+        itemstr = deref (item);
+
+        cstr = method (classOf (itemstr), "cstr");
+        printf ("%s ", cstr (itemstr));
     }
 
     printf ("\n");

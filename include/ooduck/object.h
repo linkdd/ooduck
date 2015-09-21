@@ -15,7 +15,7 @@ const void *Class (void);
 /* dynamic API */
 typedef void * (*Object_ref_m) (void *);
 typedef void (*Object_unref_m) (void *);
-typedef bool  (*Object_equal_m) (const void *, const void *);
+typedef bool (*Object_equal_m) (const void *, const void *);
 
 typedef void * (*Class_constructor_m) (void *, va_list *);
 typedef void * (*Class_destructor_m) (void *);
