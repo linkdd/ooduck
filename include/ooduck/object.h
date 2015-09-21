@@ -6,7 +6,8 @@
 #include <stdarg.h>
 #include <stdbool.h>
 #include <string.h>
-#include <assert.h>
+
+#include <ooduck/exceptions.h>
 
 const void *Object (void);
 const void *VTableEntry (void);

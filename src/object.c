@@ -272,6 +272,8 @@ static void *Class_constructor (void *_self, va_list *app)
 static void *Class_destructor (void *_self)
 {
     struct Class *self = cast (Class (), _self);
-    fprintf (stderr, "%s: cannot destroy class\n", self->name);
+
+    throwf (RuntimeException, "%s: cannot destroy class", self->name);
+
     return NULL;
 }

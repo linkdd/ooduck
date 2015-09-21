@@ -50,7 +50,7 @@ static void *Iterable_constructor (void *_self, va_list *app)
 
     if (isA (self, Iterable ()))
     {
-        /* error: abstract class */
+        throw (AbstractError, "Iterable: cannot instantiate abstract class");
     }
 
     return self;
