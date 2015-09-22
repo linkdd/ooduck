@@ -5,7 +5,7 @@ SOURCES = $(wildcard src/*.c)
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = gcc
-CFLAGS = -I include -c
+CFLAGS = --std=c99 -I include -c
 LDFLAGS = -O2 -Wall
 
 ifeq ($(DEBUG), 1)

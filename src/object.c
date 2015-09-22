@@ -10,6 +10,7 @@
 #include <ooduck/object.h>
 #include <ooduck/_defs/object.h>
 #include <ooduck/_priv/object.h>
+#include <ooduck/asprintf.h>
 
 static const void *_Object = object;
 static const void *_VTableEntry = object + 1;
@@ -223,8 +224,9 @@ static bool Object_equal (const void *_self, const void *other)
 static void *VTableEntry_constructor (void *_self, va_list *app)
 {
     struct VTableEntry *self = _self;
+    char *data = va_arg (*app, char *);
 
-    self->name = strdup (va_arg (*app, char *));
+    asprintf (&(self->name), "%s", data);
     self->func = va_arg (*app, void *);
 
     return self;

@@ -45,7 +45,7 @@ static void *String_constructor (void *_self, va_list *app)
 
     if (data)
     {
-        self->data = strdup (data);
+        asprintf (&(self->data), "%s", data);
     }
 
     return self;
