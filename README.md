@@ -9,14 +9,33 @@ OODuck is an **O**bject **O**riented framework in C with **D**uck typing support
 It is inspired of the famous [ooc.pdf](http://www.cs.rit.edu/~ats/books/ooc.pdf)
 and is using [exceptions4c](https://github.com/guillermocalvo/exceptions4c)
 
-## Build example
+## Build library
 
-The project is not yet distributed as a library, but will be soon.
+Build system is based on CMake:
 
-You can build and run the example program :
-
+    $ mkdir __build__ && cd __build__
+    $ cmake ..
     $ make
-    $ ./ooduck-example
+
+Or in debug mode:
+
+    $ mkdir __build__ && cd __build__
+    $ cmake .. -DWITH_DEBUG=1
+    $ make
+
+## Installation
+
+Once the project is built, you can install it:
+
+    $ make install
+
+To change default installation location, run ``cmake`` with the following option:
+
+    $ cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/usr
+
+To install in another directory:
+
+    $ make install DESTDIR=/opt/fakeroot
 
 ## Documentation
 

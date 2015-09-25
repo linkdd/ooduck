@@ -2,4 +2,13 @@ language: c
 compiler:
  - gcc
  - clang
-script: make
+
+before_install:
+ - sudo apt-get install cmake
+
+install:
+ - cmake . -DWITH_DEBUG=1
+ - make
+
+script:
+ - make test

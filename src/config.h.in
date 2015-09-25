@@ -1,0 +1,20 @@
+/* config.h -- This file is part of ooduck
+ *
+ * Copyright (C) 2015 David Delassus <david.jose.delassus@gmail.com>
+ *
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ */
+
+#ifndef __OODUCK_CMAKE_CONGIG_H
+#define __OODUCK_CMAKE_CONGIG_H
+
+#define OODUCK_AUTHOR           "@OODUCK_AUTHOR@"
+#define OODUCK_PACKAGE_NAME     "@OODUCK_PACKAGE_NAME@"
+
+#define OODUCK_VERSION_MAJOR    @OODUCK_VERSION_MAJOR@
+#define OODUCK_VERSION_MINOR    @OODUCK_VERSION_MINOR@
+
+#define OODUCK_LICENSE          "@OODUCK_LICENSE@"
+
+#endif /* __OODUCK_CMAKE_CONGIG_H */
