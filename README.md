@@ -39,7 +39,12 @@ To install in another directory:
 
 ## Documentation
 
-Documentation isn't available yet.
+To build documentation, you will need ``doxygen`` installed:
+
+    $ cd doc
+    $ make
+
+Then, open the file ``doc/html/index.html`` in your browser.
 
 ## License
 
