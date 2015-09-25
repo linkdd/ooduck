@@ -1,0 +1,6 @@
+config.h
+*.o
+ooduck-example
+libooduck.so
+__build__
+html
