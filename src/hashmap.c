@@ -102,7 +102,6 @@ static void Hashmap_set (void *_self, const void *key, void *value)
 
     Collection_contains_m contains = method (classOf (self->keys), "contains");
     Collection_add_m add = method (classOf (self->keys), "add");
-    Collection_del_m del = method (classOf (self->keys), "del");
 
     if (contains (self->keys, key))
     {
