@@ -11,6 +11,23 @@
 
 #include <ooduck/object.h>
 
+/**
+ * \addtogroup OODuck
+ * @{
+ */
+
+/**
+ * \class Singleton
+ * \extends Class
+ * \brief Singleton metaclass.
+ *
+ * This is used to build classes with one instance only.
+ *
+ * First call to ``new()`` with a Singleton class will create the instance and call
+ * the constructor. Then, ``new()`` will return the allocated object, ignoring arguments.
+ */
 const void *Singleton (void);
+
+/** @} */
 
 #endif /* __OODUCK_SINGLETON_H */
