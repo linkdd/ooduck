@@ -1,6 +1,6 @@
 # Main Page {#mainpage}
 
-![ ](../../doc/static/logo-48x48.png)
+![ ](https://raw.githubusercontent.com/linkdd/ooduck/master/doc/static/logo-48x48.png)
 ![Travis-CI build](https://travis-ci.org/linkdd/ooduck.svg)
 
 OODuck is an <b>O</b>bject <b>O</b>riented framework in C with <b>D</b>uck typing support.

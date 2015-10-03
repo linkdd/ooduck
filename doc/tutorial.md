@@ -45,7 +45,8 @@ printf ("%s\n", cstr (str));
 Finally, an object is freed with the ``delete()`` function:
 
 ~~~~~~~~~~~~~~~{.c}
-delete (str)
+delete (str);
+~~~~~~~~~~~~~~~
 
 ## Reference counting
 
@@ -57,7 +58,8 @@ void *str = new (String (), "Hello world");
 void *str2 = ref (str);
 
 unref (str);   /* str2 is still accessible */
-unref (str2);  /* the 
+unref (str2);  /* the object has been deleted */
+~~~~~~~~~~~~~~~
 
 ## Creating new classes
 
@@ -144,7 +146,8 @@ Finally, we can use our new class:
 void *obj = new (MyClass (), 42);
 MyClass_my_method_m my_method = method (classOf (obj), "my_method");
 
-assert (my_method
+assert (my_method (obj) == 42);
+~~~~~~~~~~~~~~~
 
 ## Important notes
 
