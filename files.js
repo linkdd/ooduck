@@ -6,6 +6,7 @@ var files =
     [ "hashmap.h", "hashmap_8h_source.html", null ],
     [ "iterable.h", "iterable_8h_source.html", null ],
     [ "object.h", "object_8h.html", "object_8h" ],
+    [ "singleton.h", "singleton_8h_source.html", null ],
     [ "string.h", "string_8h_source.html", null ],
     [ "asprintf.h", "asprintf_8h_source.html", null ],
     [ "exceptions.h", "exceptions_8h_source.html", null ]

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['equal',['equal',['../struct_object.html#a2ec84eec3fa9f5ee777f370b3f292dd8',1,'Object']]]
+  ['delete',['delete',['../object_8h.html#a16098144d49597bbf26417dcb39d9f8a',1,'object.h']]]
 ];

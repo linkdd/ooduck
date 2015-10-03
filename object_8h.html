@@ -125,6 +125,35 @@ Functions</h2></td></tr>
 <tr class="memitem:acaebd367926342e0cc82066431bb8e2e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#acaebd367926342e0cc82066431bb8e2e">cast</a> (const void *class, const void *_self)</td></tr>
 <tr class="memdesc:acaebd367926342e0cc82066431bb8e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assert that object is of specified class.  <a href="#acaebd367926342e0cc82066431bb8e2e">More...</a><br /></td></tr>
 <tr class="separator:acaebd367926342e0cc82066431bb8e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5d6e937d52fcf457bb9e1a850cafc23"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#af5d6e937d52fcf457bb9e1a850cafc23">super</a> (const void *_class)</td></tr>
+<tr class="memdesc:af5d6e937d52fcf457bb9e1a850cafc23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return super class.  <a href="#af5d6e937d52fcf457bb9e1a850cafc23">More...</a><br /></td></tr>
+<tr class="separator:af5d6e937d52fcf457bb9e1a850cafc23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb9e3d17823733a769c30ab006146fde"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#abb9e3d17823733a769c30ab006146fde">method</a> (const void *_class, const char *name)</td></tr>
+<tr class="memdesc:abb9e3d17823733a769c30ab006146fde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get class method.  <a href="#abb9e3d17823733a769c30ab006146fde">More...</a><br /></td></tr>
+<tr class="separator:abb9e3d17823733a769c30ab006146fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb8ced368e768c5b59f32518476108a4"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#aeb8ced368e768c5b59f32518476108a4">classOf</a> (const void *_self)</td></tr>
+<tr class="memdesc:aeb8ced368e768c5b59f32518476108a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get class of object.  <a href="#aeb8ced368e768c5b59f32518476108a4">More...</a><br /></td></tr>
+<tr class="separator:aeb8ced368e768c5b59f32518476108a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e6595c8bba4cbe8325064e54a0cd8be"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#a4e6595c8bba4cbe8325064e54a0cd8be">sizeOf</a> (const void *_self)</td></tr>
+<tr class="memdesc:a4e6595c8bba4cbe8325064e54a0cd8be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get object's size.  <a href="#a4e6595c8bba4cbe8325064e54a0cd8be">More...</a><br /></td></tr>
+<tr class="separator:a4e6595c8bba4cbe8325064e54a0cd8be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba6d9a91eeeea6a5c41a59549a29d6a6"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#aba6d9a91eeeea6a5c41a59549a29d6a6">new</a> (const void *_class,...)</td></tr>
+<tr class="memdesc:aba6d9a91eeeea6a5c41a59549a29d6a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate new object.  <a href="#aba6d9a91eeeea6a5c41a59549a29d6a6">More...</a><br /></td></tr>
+<tr class="separator:aba6d9a91eeeea6a5c41a59549a29d6a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16098144d49597bbf26417dcb39d9f8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#a16098144d49597bbf26417dcb39d9f8a">delete</a> (void *_self)</td></tr>
+<tr class="memdesc:a16098144d49597bbf26417dcb39d9f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free object.  <a href="#a16098144d49597bbf26417dcb39d9f8a">More...</a><br /></td></tr>
+<tr class="separator:a16098144d49597bbf26417dcb39d9f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95870a8ecf8cda3ce7e0a654bd192d47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95870a8ecf8cda3ce7e0a654bd192d47"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#a95870a8ecf8cda3ce7e0a654bd192d47">ref</a> (void *_self)</td></tr>
+<tr class="memdesc:a95870a8ecf8cda3ce7e0a654bd192d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="struct_object.html" title="Base class for everything. ">Object</a>::<b>ref</b>(). <br /></td></tr>
+<tr class="separator:a95870a8ecf8cda3ce7e0a654bd192d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10a09ffce3b6404de1e1de70a47116d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10a09ffce3b6404de1e1de70a47116d0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#a10a09ffce3b6404de1e1de70a47116d0">unref</a> (void *_self)</td></tr>
+<tr class="memdesc:a10a09ffce3b6404de1e1de70a47116d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="struct_object.html" title="Base class for everything. ">Object</a>::<b>unref</b>(). <br /></td></tr>
+<tr class="separator:a10a09ffce3b6404de1e1de70a47116d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b78420eea629ef862b85d2950ac7989"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="object_8h.html#a7b78420eea629ef862b85d2950ac7989">ooduck_init</a> (void)</td></tr>
+<tr class="memdesc:a7b78420eea629ef862b85d2950ac7989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize static types.  <a href="#a7b78420eea629ef862b85d2950ac7989">More...</a><br /></td></tr>
+<tr class="separator:a7b78420eea629ef862b85d2950ac7989"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="acaebd367926342e0cc82066431bb8e2e"></a>
@@ -160,6 +189,56 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Casted object instance. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aeb8ced368e768c5b59f32518476108a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void * classOf </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get class of object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td><a class="el" href="struct_object.html" title="Base class for everything. ">Object</a> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a> object. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a16098144d49597bbf26417dcb39d9f8a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void delete </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Free object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td><a class="el" href="struct_object.html" title="Base class for everything. ">Object</a> instance.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Calls <a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a>::<b>destructor</b>() </p>
 
 </div>
 </div>
@@ -232,6 +311,148 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>TRUE</code> if object is an instance of class/derivated class, <code>FALSE</code> otherwise. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abb9e3d17823733a769c30ab006146fde"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * method </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>class</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get class method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">class</td><td><a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a> object. </td></tr>
+    <tr><td class="paramname">name</td><td>Method name. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Function pointer to the correct method. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aba6d9a91eeeea6a5c41a59549a29d6a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * new </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>class</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate new object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">class</td><td><a class="el" href="struct_object.html" title="Base class for everything. ">Object</a>'s class. </td></tr>
+    <tr><td class="paramname">...</td><td><a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a> constructor parameters. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>New object or <code>NULL</code> on error.</dd></dl>
+<p>Calls meta <a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a>::<b>alloc</b>() and if allocation was done, calls <a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a>::<b>constructor</b>(). </p>
+
+</div>
+</div>
+<a class="anchor" id="a7b78420eea629ef862b85d2950ac7989"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ooduck_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize static types. </p>
+<p>Only <a class="el" href="struct_object.html" title="Base class for everything. ">Object</a>, <a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a> and <a class="el" href="struct_v_table_entry.html" title="Entry for dynamic VTable. ">VTableEntry</a> are defined statically. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4e6595c8bba4cbe8325064e54a0cd8be"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t sizeOf </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get object's size. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td><a class="el" href="struct_object.html" title="Base class for everything. ">Object</a> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_object.html" title="Base class for everything. ">Object</a> size in bytes. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af5d6e937d52fcf457bb9e1a850cafc23"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void * super </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>class</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return super class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">class</td><td><a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Parent class. </dd></dl>
 
 </div>
 </div>
