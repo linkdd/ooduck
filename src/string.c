@@ -101,7 +101,7 @@ static void String_format (void *_self, const char *fmt, ...)
 static size_t String_len (const void *_self)
 {
     String_cstr_m cstr = method (classOf (_self), "cstr");
-    const char *data = cstr (data);
+    const char *data = cstr (_self);
 
     if (data)
     {

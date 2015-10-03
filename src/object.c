@@ -51,6 +51,16 @@ void ooduck_init (void)
     object[0].vtable = VObject;
     object[1].vtable = VVTableEntry;
     object[2].vtable = VClass;
+
+    if (!e4c_context_is_ready ())
+    {
+        e4c_context_begin (E4C_TRUE);
+        atexit (e4c_context_end);
+    }
+    else
+    {
+        e4c_using_context (E4C_TRUE);
+    }
 }
 
 const void *Object (void)
@@ -148,18 +158,25 @@ size_t sizeOf (const void *_self)
 
 void *new (const void *_class, ...)
 {
-    const struct Class *class = cast (Class (), _class);
+    struct Class *class = cast (Class (), _class);
+
+    Class_alloc_m alloc = NULL;
     Class_constructor_m ctor = NULL;
-    struct Object *obj = NULL;
-    va_list ap;
+    void *obj = NULL;
 
-    obj = calloc (1, class->size);
-    obj->class = class;
+    alloc = method (classOf (class), "__alloc__");
 
-    va_start (ap, _class);
-    ctor = method (class, "__constructor__");
-    obj = ctor (obj, &ap);
-    va_end (ap);
+    if (alloc (class, &obj) && obj != NULL)
+    {
+        va_list ap;
+
+        va_start (ap, _class);
+
+        ctor = method (class, "__constructor__");
+        obj = ctor (obj, &ap);
+
+        va_end (ap);
+    }
 
     return obj;
 }
@@ -255,6 +272,26 @@ static struct VTableEntry **VTableEntry_add (
     new_entries[nentries] = NULL;
 
     return new_entries;
+}
+
+static bool Class_alloc (void *_class, void **instance)
+{
+    struct Class *class = cast (Class (), _class);
+    struct Object *obj = NULL;
+
+    assert (instance != NULL);
+
+    obj = calloc (1, class->size);
+    
+    if (obj != NULL)
+    {
+        obj->class = class;
+        *instance = obj;
+
+        return true;
+    }
+
+    return false;
 }
 
 static void *Class_constructor (void *_self, va_list *app)
