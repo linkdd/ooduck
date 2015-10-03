@@ -8,54 +8,72 @@
 
 #include <ooduck/string.h>
 #include <ooduck/collection.h>
+#include <ooduck/singleton.h>
 
-int main (int argc, char *argv[])
+struct
 {
-    String_cstr_m cstr;
     Collection_add_m add;
     Collection_del_m del;
     Collection_contains_m contains;
     Iterator_next_m next;
+
+    void *col;
+    void *str;
+    void *it;
+} global;
+
+void setup (void)
+{
+    global.col = new (Collection ());
+    global.str = new (String (), "Hello world!");
+    global.it = new (Iterator (), global.col);
+
+    global.contains = method (classOf (global.col), "contains");
+    global.add = method (classOf (global.col), "add");
+    global.del = method (classOf (global.col), "del");
+    global.next = method (classOf (global.it), "next");
+}
+
+void teardown (void)
+{
+    delete (global.it);
+    delete (global.str);
+    delete (global.col);
+
+    memset (&global, 0, sizeof (global));
+}
+
+static void test_class_hierarchy (void)
+{
+    assert (isA (global.str, String ()));
+    assert (isOf (global.col, Iterable ()));
+}
+
+static void test_collection (void)
+{
+    global.add (global.col, global.str);
+    assert (global.contains (global.col, global.str));
+
+    global.del (global.col, global.str);
+    assert (!global.contains (global.col, global.str));
+}
+
+static void test_iterable (void)
+{
+    String_cstr_m cstr;
     Item_deref_m deref;
 
-    void *col = NULL;
-    void *str = NULL;
-    void *it = NULL;
     void *item = NULL;
 
-    ooduck_init ();
-
-    col = new (Collection ());
-    str = new (String (), "Hello world!");
-
-    /* test class hierarchy */
-    assert (isA (str, String ()));
-    assert (isOf (col, Iterable ()));
-
-    /* test collection */
-    contains = method (classOf (col), "contains");
-
-    add = method (classOf (col), "add");
-    add (col, str);
-    assert (contains (col, str));
-
-    del = method (classOf (col), "del");
-    del (col, str);
-    assert (!contains (col, str));
-
     item = new (String (), "Hello");
-    add (col, item);
+    global.add (global.col, item);
     unref (item);
 
     item = new (String (), "world!");
-    add (col, item);
+    global.add (global.col, item);
     unref (item);
 
-    /* test iterable */
-    it = new (Iterator (), col);
-    next = method (classOf (it), "next");
-
-    while ((item = next (it)) != NULL)
+    while ((item = global.next (global.it)) != NULL)
     {
         void *itemstr = NULL;
 
@@ -67,10 +85,57 @@ int main (int argc, char *argv[])
     }
 
     printf ("\n");
+}
 
-    delete (it);
-    delete (str);
-    delete (col);
+static void test_singleton (void)
+{
+    void *singletoncls = new (
+        Singleton (), "TestSingleton",
+        String (), sizeOf (global.str),
+        NULL
+    );
+
+    void *a = new (singletoncls, "test");
+    void *b = new (singletoncls, "test");
+
+    assert (a == b);
+}
+
+typedef void (*testcase) (void);
+
+static struct
+{
+    char *name;
+    testcase test;
+} unittests[] = {
+    { "class-hierarchy", test_class_hierarchy },
+    { "collection", test_collection },
+    { "iterable", test_iterable },
+    { "singleton", test_singleton },
+    { NULL, NULL }
+};
+
+int main (int argc, char *argv[])
+{
+    int i;
+
+    ooduck_init ();
+
+    try
+    {
+        for (i = 0; unittests[i].name != NULL; ++i)
+        {
+            printf ("-- Test: %s\n", unittests[i].name);
+
+            setup ();
+            unittests[i].test ();
+            teardown ();
+        }
+    }
+    catch (RuntimeException)
+    {
+        e4c_print_exception (e4c_get_exception ());
+    }
 
     return 0;
 }

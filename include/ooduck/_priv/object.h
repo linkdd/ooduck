@@ -24,6 +24,7 @@ static struct VTableEntry **VTableEntry_add (struct VTableEntry **entries,
                                              char *name,
                                              void *func);
 
+static bool Class_alloc (void *_self, void **instance);
 static void *Class_constructor (void *_self, va_list *app);
 static void *Class_destructor (void *_self);
 
@@ -70,10 +71,11 @@ static struct VTableEntry VTableEntryVTable[N_VTABLEENTRY_VTABLE_STATIC_ENTRIES]
     { { object + 2 }, "__destructor__", VTableEntry_destructor }
 };
 
-#define N_CLASS_VTABLE_STATIC_ENTRIES 2
+#define N_CLASS_VTABLE_STATIC_ENTRIES 3
 
 static struct VTableEntry ClassVTable[N_CLASS_VTABLE_STATIC_ENTRIES] =
 {
+    { { object + 2 }, "__alloc__", Class_alloc },
     { { object + 2 }, "__constructor__", Class_constructor },
     { { object + 2 }, "__destructor__", Class_destructor }
 };
