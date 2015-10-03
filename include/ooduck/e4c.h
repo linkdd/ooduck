@@ -1,4 +1,10 @@
 /**
+ * \addtogroup exceptions4c
+ * \brief Exceptions4C library.
+ * @{
+ */
+
+/**
  *
  * @file        e4c.h
  *
@@ -3603,3 +3609,5 @@ E4C_NO_RETURN;
 
 
 # endif
+
+/** @} */

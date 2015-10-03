@@ -17,7 +17,11 @@
 
 #include <ooduck/exceptions.h>
 
-/** \file */
+/**
+ * \addtogroup OODuck
+ * \brief OODuck library.
+ * @{
+ */
 
 /**
  * \class Object
@@ -38,6 +42,8 @@ const void *VTableEntry (void);
  * \brief Class used to build new class dynamically.
  */
 const void *Class (void);
+
+/** @} */
 
 /**
  * \fn void *Object::ref (void *self)
@@ -94,6 +100,12 @@ typedef void * (*Class_constructor_m) (void *, va_list *);
  * \return Instance.
  */
 typedef void * (*Class_destructor_m) (void *);
+
+/**
+ * \addtogroup static
+ * \brief Statically defined functions.
+ * @{
+ */
 
 /**
  * \fn bool isA (const void *self, const void *class)
@@ -162,8 +174,8 @@ size_t sizeOf (const void *_self);
  * \param ... Class constructor parameters.
  * \return New object or ``NULL`` on error.
  *
- * Calls meta Class::__alloc__() and if allocation was done,
- * calls Class::__constructor__().
+ * Calls meta ``Class::__alloc__()`` and if allocation was done,
+ * calls ``Class::__constructor__()``.
  */
 void *new (const void *_class, ...);
 
@@ -172,19 +184,19 @@ void *new (const void *_class, ...);
  * \brief Free object.
  * \param self Object instance.
  *
- * Calls Class::__destructor__()
+ * Calls ``Class::__destructor__()``
  */
 void delete (void *_self);
 
 /**
  * \fn void *ref (void *self)
- * \brief Calls Object::__ref__().
+ * \brief Calls ``Object::__ref__()``.
  */
 void *ref (void *_self);
 
 /**
  * \fn void *unref (void *self)
- * \brief Calls Object::__unref__().
+ * \brief Calls ``Object::__unref__()``.
  */
 void unref (void *_self);
 
@@ -195,5 +207,7 @@ void unref (void *_self);
  * Only Object, Class and VTableEntry are defined statically.
  */
 void ooduck_init (void);
+
+/** @} */
 
 #endif /* __OODUCK_OBJECT_H */

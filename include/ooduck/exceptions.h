@@ -11,7 +11,29 @@
 
 #include <ooduck/e4c.h>
 
+/**
+ * \addtogroup OODuck
+ * @{
+ */
+
+/**
+ * \class RuntimeError
+ * \brief Baseclass for all exceptions.
+ * \see Exceptions4C module.
+ */
+
+/**
+ * \class NotImplementedError
+ * \extends RuntimeError
+ * \brief Raised when function or method isn't implemented.
+ */
 E4C_DECLARE_EXCEPTION (NotImplementedError);
+
+/**
+ * \class AbstractError
+ * \extends RuntimeError
+ * \brief Raised when an abstract class is instanciated.
+ */
 E4C_DECLARE_EXCEPTION (AbstractError);
 
 #endif /* __OODUCK_EXCEPTIONS_H */

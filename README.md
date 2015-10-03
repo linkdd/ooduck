@@ -46,6 +46,8 @@ To build documentation, you will need ``doxygen`` installed:
 
 Then, open the file ``doc/html/index.html`` in your browser.
 
+Or, take a look at the [online documentation](https://linkdd.github.com/ooduck/)
+
 ## License
 
 OODuck is released under the terms of the MIT license. See the LICENSE file for details.
