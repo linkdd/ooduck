@@ -30,10 +30,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo-48x48.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OODuck
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.3</span>
    </div>
    <div id="projectbrief">C Oriented Object framework with duck-typing support</div>
   </td>
@@ -49,8 +48,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -67,12 +67,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           </span>
         </div>
       </li>
-    </ul>
-  </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -122,10 +116,14 @@ $(document).ready(function(){initNavTree('exceptions_8h_source.html','');});
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;ooduck/e4c.h&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;E4C_DECLARE_EXCEPTION (NotImplementedError);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;E4C_DECLARE_EXCEPTION (AbstractError);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OODUCK_EXCEPTIONS_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="group__exceptions4c.html#gafbe55946f07a3dca22879ad5832b2a19">E4C_DECLARE_EXCEPTION</a> (<a class="code" href="class_not_implemented_error.html">NotImplementedError</a>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<a class="code" href="group__exceptions4c.html#gafbe55946f07a3dca22879ad5832b2a19">E4C_DECLARE_EXCEPTION</a> (<a class="code" href="class_abstract_error.html">AbstractError</a>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OODUCK_EXCEPTIONS_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_abstract_error_html"><div class="ttname"><a href="class_abstract_error.html">AbstractError</a></div><div class="ttdoc">Raised when an abstract class is instanciated. </div></div>
+<div class="ttc" id="group__exceptions4c_html_gafbe55946f07a3dca22879ad5832b2a19"><div class="ttname"><a href="group__exceptions4c.html#gafbe55946f07a3dca22879ad5832b2a19">E4C_DECLARE_EXCEPTION</a></div><div class="ttdeci">#define E4C_DECLARE_EXCEPTION(name)</div><div class="ttdef"><b>Definition:</b> e4c.h:1804</div></div>
+<div class="ttc" id="class_not_implemented_error_html"><div class="ttname"><a href="class_not_implemented_error.html">NotImplementedError</a></div><div class="ttdoc">Raised when function or method isn&#39;t implemented. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

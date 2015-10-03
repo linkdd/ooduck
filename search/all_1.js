@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['cast',['cast',['../object_8h.html#acaebd367926342e0cc82066431bb8e2e',1,'object.h']]],
-  ['class',['Class',['../struct_class.html',1,'']]],
-  ['classof',['classOf',['../object_8h.html#aeb8ced368e768c5b59f32518476108a4',1,'object.h']]]
+  ['abstracterror',['AbstractError',['../class_abstract_error.html',1,'']]],
+  ['add',['add',['../struct_collection.html#aa17c38ee4d6a6699c5087acccfb7bc16',1,'Collection']]],
+  ['asprintf',['asprintf',['../group__static.html#gaac4b1d7707d03271e198e29e8375345d',1,'asprintf.h']]],
+  ['assert',['assert',['../group__exceptions4c.html#gacdcc5aaebf3f273c1762f24a6ece2e5e',1,'e4c.h']]]
 ];

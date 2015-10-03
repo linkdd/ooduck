@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['unref',['unref',['../struct_object.html#a892be1c5131a5b98bf0a35f2ffe4030b',1,'Object::unref()'],['../object_8h.html#a10a09ffce3b6404de1e1de70a47116d0',1,'unref():&#160;object.h']]]
+  ['len',['len',['../struct_string.html#ac79aa17025549cead3d5a0294b4e7592',1,'String']]],
+  ['line',['line',['../structe4c__exception__.html#ad29dcf039519b17f869dc896c53193ee',1,'e4c_exception_']]]
 ];

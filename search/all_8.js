@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['ref',['ref',['../struct_object.html#a0db258b1b2c81f071319d5b4430510ea',1,'Object::ref()'],['../object_8h.html#a95870a8ecf8cda3ce7e0a654bd192d47',1,'ref():&#160;object.h']]]
+  ['isa',['isA',['../group__static.html#ga1991a4be001978f42cc3fefe824ccea8',1,'object.h']]],
+  ['isof',['isOf',['../group__static.html#ga39456411fc926568e9f29e22371285fc',1,'object.h']]],
+  ['item',['Item',['../struct_item.html',1,'']]],
+  ['iterable',['Iterable',['../struct_iterable.html',1,'']]],
+  ['iterator',['Iterator',['../struct_iterator.html',1,'']]]
 ];

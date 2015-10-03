@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['object',['Object',['../struct_object.html',1,'']]]
+  ['class',['Class',['../struct_class.html',1,'']]],
+  ['collection',['Collection',['../struct_collection.html',1,'']]]
 ];

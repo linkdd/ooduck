@@ -30,10 +30,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="logo-48x48.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OODuck
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.3</span>
    </div>
    <div id="projectbrief">C Oriented Object framework with duck-typing support</div>
   </td>
@@ -49,8 +48,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -112,10 +112,23 @@ $(document).ready(function(){initNavTree('hierarchy.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock">This inheritance list is sorted roughly, but not completely, alphabetically:</div><div class="directory">
-<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span>]</div><table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_object.html" target="_self">Object</a></td><td class="desc">Base class for everything </td></tr>
-<tr id="row_0_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_class.html" target="_self">Class</a></td><td class="desc"><a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a> used to build new class dynamically </td></tr>
-<tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_v_table_entry.html" target="_self">VTableEntry</a></td><td class="desc">Entry for dynamic VTable </td></tr>
+<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span><span onclick="javascript:toggleLevel(3);">3</span>]</div><table class="directory">
+<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structe4c__exception__.html" target="_self">e4c_exception</a></td><td class="desc"></td></tr>
+<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structe4c__exception__type__.html" target="_self">e4c_exception_type</a></td><td class="desc"></td></tr>
+<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structe4c__signal__mapping__.html" target="_self">e4c_signal_mapping</a></td><td class="desc"></td></tr>
+<tr id="row_3_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_3_" class="arrow" onclick="toggleFolder('3_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_object.html" target="_self">Object</a></td><td class="desc">Base class for everything </td></tr>
+<tr id="row_3_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_3_0_" class="arrow" onclick="toggleFolder('3_0_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_class.html" target="_self">Class</a></td><td class="desc"><a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a> used to build new class dynamically </td></tr>
+<tr id="row_3_0_0_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_singleton.html" target="_self">Singleton</a></td><td class="desc"><a class="el" href="struct_singleton.html" title="Singleton metaclass. ">Singleton</a> metaclass </td></tr>
+<tr id="row_3_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_item.html" target="_self">Item</a></td><td class="desc"><a class="el" href="struct_collection.html" title="Collection of item. ">Collection</a> item </td></tr>
+<tr id="row_3_2_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_3_2_" class="arrow" onclick="toggleFolder('3_2_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_iterable.html" target="_self">Iterable</a></td><td class="desc">Abstract class which allow to iterate over object </td></tr>
+<tr id="row_3_2_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_collection.html" target="_self">Collection</a></td><td class="desc"><a class="el" href="struct_collection.html" title="Collection of item. ">Collection</a> of item </td></tr>
+<tr id="row_3_2_1_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_hashmap.html" target="_self">Hashmap</a></td><td class="desc"><a class="el" href="struct_hashmap.html" title="Hashmap implementation. ">Hashmap</a> implementation </td></tr>
+<tr id="row_3_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_iterator.html" target="_self">Iterator</a></td><td class="desc"><a class="el" href="struct_object.html" title="Base class for everything. ">Object</a> used to iterate over <a class="el" href="struct_iterable.html" title="Abstract class which allow to iterate over object. ">Iterable</a> </td></tr>
+<tr id="row_3_4_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_string.html" target="_self">String</a></td><td class="desc"><a class="el" href="struct_string.html" title="String utility class. ">String</a> utility class </td></tr>
+<tr id="row_3_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_v_table_entry.html" target="_self">VTableEntry</a></td><td class="desc">Entry for dynamic VTable </td></tr>
+<tr id="row_4_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_4_" class="arrow" onclick="toggleFolder('4_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_runtime_error.html" target="_self">RuntimeError</a></td><td class="desc">Baseclass for all exceptions </td></tr>
+<tr id="row_4_0_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_abstract_error.html" target="_self">AbstractError</a></td><td class="desc">Raised when an abstract class is instanciated </td></tr>
+<tr id="row_4_1_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_not_implemented_error.html" target="_self">NotImplementedError</a></td><td class="desc">Raised when function or method isn't implemented </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->

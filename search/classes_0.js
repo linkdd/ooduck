@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['class',['Class',['../struct_class.html',1,'']]]
+  ['abstracterror',['AbstractError',['../class_abstract_error.html',1,'']]]
 ];

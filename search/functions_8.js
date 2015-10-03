@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ref',['ref',['../struct_object.html#a0db258b1b2c81f071319d5b4430510ea',1,'Object::ref()'],['../object_8h.html#a95870a8ecf8cda3ce7e0a654bd192d47',1,'ref():&#160;object.h']]]
+  ['len',['len',['../struct_string.html#ac79aa17025549cead3d5a0294b4e7592',1,'String']]]
 ];

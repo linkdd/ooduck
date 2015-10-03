@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['new',['new',['../object_8h.html#aba6d9a91eeeea6a5c41a59549a29d6a6',1,'object.h']]]
+  ['get',['get',['../struct_iterator.html#a8370a66f11d1b5bafaf77dee6a6ddbd9',1,'Iterator']]]
 ];
