@@ -126,30 +126,21 @@ $(document).ready(function(){initNavTree('page.html','');});
 <div class="line">printf (<span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code" href="struct_string.html#a54025e601e51b86932da9b8745d9d943">cstr</a> (str));</div>
 </div><!-- fragment --><p><b>NB:</b> the methods prototypes are located in the class header (here: <code><a class="el" href="string_8h_source.html">ooduck/string.h</a></code>).</p>
 <p>Finally, an object is freed with the <code><a class="el" href="group__static.html#ga16098144d49597bbf26417dcb39d9f8a" title="Free object. ">delete()</a></code> function:</p>
-<div class="fragment"><div class="line"><span class="keyword">delete</span> (str)</div>
-<div class="line"></div>
-<div class="line">## Reference counting</div>
-<div class="line"></div>
-<div class="line">All objects (<a class="code" href="struct_class.html">Class</a> included) have a reference counter initialized to ``1``.</div>
-<div class="line">When <span class="keyword">this</span> counter equals ``0``, the <span class="keywordtype">object</span> is automatically deleted:</div>
-<div class="line"></div>
-<div class="line">~~~~~~~~~~~~~~~{.c}</div>
-<div class="line"><span class="keywordtype">void</span> *str = <span class="keyword">new</span> (<a class="code" href="struct_string.html">String</a> (), <span class="stringliteral">&quot;Hello world&quot;</span>);</div>
+<div class="fragment"><div class="line"><span class="keyword">delete</span> (str);</div>
+</div><!-- fragment --><h2>Reference counting</h2>
+<p>All objects (<a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a> included) have a reference counter initialized to <code>1</code>. When this counter equals <code>0</code>, the object is automatically deleted:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> *str = <span class="keyword">new</span> (<a class="code" href="struct_string.html">String</a> (), <span class="stringliteral">&quot;Hello world&quot;</span>);</div>
 <div class="line"><span class="keywordtype">void</span> *str2 = <a class="code" href="struct_object.html#a0db258b1b2c81f071319d5b4430510ea">ref</a> (str);</div>
 <div class="line"></div>
 <div class="line"><a class="code" href="struct_object.html#a892be1c5131a5b98bf0a35f2ffe4030b">unref</a> (str);   <span class="comment">/* str2 is still accessible */</span></div>
-<div class="line"><a class="code" href="struct_object.html#a892be1c5131a5b98bf0a35f2ffe4030b">unref</a> (str2);  <span class="comment">/* the </span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">## Creating new classes</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">The first step is to define our Class structure:</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">~~~~~~~~~~~~~~~{.c}</span></div>
-<div class="line"><span class="comment">#include &lt;ooduck/_defs/object.h&gt;</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">struct MyClass</span></div>
-<div class="line"><span class="comment">{</span></div>
-<div class="line"><span class="comment">    /* the parent class is Object, so we define a member to allow the pointer</span></div>
+<div class="line"><a class="code" href="struct_object.html#a892be1c5131a5b98bf0a35f2ffe4030b">unref</a> (str2);  <span class="comment">/* the object has been deleted */</span></div>
+</div><!-- fragment --><h2>Creating new classes</h2>
+<p>The first step is to define our <a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a> structure:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;ooduck/_defs/object.h&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keyword">struct </span>MyClass</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">/* the parent class is Object, so we define a member to allow the pointer</span></div>
 <div class="line"><span class="comment">     * to be casted to the parent class.</span></div>
 <div class="line"><span class="comment">     */</span></div>
 <div class="line">    <span class="keyword">struct </span><a class="code" href="struct_object.html">Object</a> _;</div>
@@ -206,9 +197,11 @@ $(document).ready(function(){initNavTree('page.html','');});
 </div><!-- fragment --><p>The last step is to define prototypes for our methods:</p>
 <div class="fragment"><div class="line"><span class="keyword">typedef</span> int (*MyClass_my_method_m) (<span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
 </div><!-- fragment --><p>Finally, we can use our new class:</p>
-<p>~~~~~~~~~~~~~~~{.c} void *obj = new (MyClass (), 42); MyClass_my_method_m my_method = method (classOf (obj), "my_method");</p>
-<p>assert (my_method</p>
-<h2>Important notes</h2>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> *obj = <span class="keyword">new</span> (MyClass (), 42);</div>
+<div class="line">MyClass_my_method_m my_method = <a class="code" href="group__static.html#gabb9e3d17823733a769c30ab006146fde">method</a> (<a class="code" href="group__static.html#gaeb8ced368e768c5b59f32518476108a4">classOf</a> (obj), <span class="stringliteral">&quot;my_method&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="group__exceptions4c.html#gacdcc5aaebf3f273c1762f24a6ece2e5e">assert</a> (my_method (obj) == 42);</div>
+</div><!-- fragment --><h2>Important notes</h2>
 <p>As you can see, we define our class in a <code>static</code> global variable, and make it accessible with a function.</p>
 <p>This is not <b>thread-safe</b> at all. You will need to call this function for each class you use <b>before</b> starting new threads.</p>
 <p>In a later release, I would like to implement a <b>lock-free</b> algorithm with a set of <em>macros</em>, in order to ease the implementation. </p>
