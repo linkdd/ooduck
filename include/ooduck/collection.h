@@ -67,7 +67,7 @@ typedef void (*Collection_add_m) (void *, const void *);
 typedef void (*Collection_del_m) (void *, const void *);
 
 /**
- * \fn bool Collection::contains (
+ * \fn bool Collection::contains (void *self, const void *object)
  * \param object Object instance (will be unreferenced).void *self, const void *object)
  * \memberof Collection
  * \brief Check if ``object`` is in the collection.
