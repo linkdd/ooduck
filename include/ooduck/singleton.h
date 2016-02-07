@@ -26,7 +26,7 @@
  * First call to ``new()`` with a Singleton class will create the instance and call
  * the constructor. Then, ``new()`` will return the allocated object, ignoring arguments.
  */
-const void *Singleton (void);
+OODUCK_DECLARE_CLASS (Singleton);
 
 /** @} */
 

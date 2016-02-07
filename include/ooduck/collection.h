@@ -22,7 +22,7 @@
  * \see Item
  * \brief Collection of item.
  */
-const void *Collection (void);
+OODUCK_DECLARE_CLASS (Collection);
 
 /**
  * \class Item
@@ -31,7 +31,7 @@ const void *Collection (void);
  *
  * Implements a doubly linked list of Item objects.
  */
-const void *Item (void);
+OODUCK_DECLARE_CLASS (Item);
 
 /** @} */
 
@@ -67,7 +67,7 @@ typedef void (*Collection_add_m) (void *, const void *);
 typedef void (*Collection_del_m) (void *, const void *);
 
 /**
- * \fn bool Collection::contains (
+ * \fn bool Collection::contains (void *self, const void *object)
  * \param object Object instance (will be unreferenced).void *self, const void *object)
  * \memberof Collection
  * \brief Check if ``object`` is in the collection.

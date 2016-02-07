@@ -11,46 +11,33 @@
 #include <ooduck/_defs/collection.h>
 #include <ooduck/_priv/collection.h>
 
-static const void *_Collection = NULL;
-static const void *_Item = NULL;
+OODUCK_DEFINE_CLASS (
+    Collection,
+    new (
+        Class (), "Collection",
+        Iterable (), sizeof (struct Collection),
+        "__constructor__", Collection_constructor,
+        "__destructor__", Collection_destructor,
+        "next", Collection_next,
+        "clear", Collection_clear,
+        "add", Collection_add,
+        "del", Collection_del,
+        "contains", Collection_contains,
+        NULL
+    )
+)
 
-const void *Collection (void)
-{
-    if (_Collection == NULL)
-    {
-        _Collection = new (
-            Class (), "Collection",
-            Iterable (), sizeof (struct Collection),
-            "__constructor__", Collection_constructor,
-            "__destructor__", Collection_destructor,
-            "next", Collection_next,
-            "clear", Collection_clear,
-            "add", Collection_add,
-            "del", Collection_del,
-            "contains", Collection_contains,
-            NULL
-        );
-    }
-
-    return _Collection;
-}
-
-const void *Item (void)
-{
-    if (_Item == NULL)
-    {
-        _Item = new (
-            Class (), "Item",
-            Object (), sizeof (struct Item),
-            "__constructor__", Item_constructor,
-            "__destructor__", Item_destructor,
-            "deref", Item_deref,
-            NULL
-        );
-    }
-
-    return _Item;
-}
+OODUCK_DEFINE_CLASS (
+    Item,
+    new (
+        Class (), "Item",
+        Object (), sizeof (struct Item),
+        "__constructor__", Item_constructor,
+        "__destructor__", Item_destructor,
+        "deref", Item_deref,
+        NULL
+    )
+)
 
 /* implementation */
 
@@ -69,10 +56,11 @@ static void *Collection_constructor (void *_self, va_list *app)
 static void *Collection_destructor (void *_self)
 {
     struct Collection *self = cast (Collection (), _self);
+    Class_destructor_m dtor = method (super (Collection ()), "__destructor__");
 
     Collection_clear (self);
 
-    return self;
+    return dtor (self);
 }
 
 static void *Collection_next (void *_self, const void *iterator)
@@ -210,10 +198,11 @@ static void *Item_constructor (void *_self, va_list *app)
 static void *Item_destructor (void *_self)
 {
     struct Item *self = cast (Item (), _self);
+    Class_destructor_m dtor = method (super (Item ()), "__destructor__");
 
     unref (self->itptr);
 
-    return self;
+    return dtor (self);
 }
 
 static void *Item_deref (void *_self)

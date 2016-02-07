@@ -11,29 +11,22 @@
 #include <ooduck/_defs/hashmap.h>
 #include <ooduck/_priv/hashmap.h>
 
-static const void *_Hashmap = NULL;
-
-const void *Hashmap (void)
-{
-    if (_Hashmap == NULL)
-    {
-        _Hashmap = new (
-            Class (), "Hashmap",
-            Iterable (), sizeof (struct Hashmap),
-            "__constructor__", Hashmap_constructor,
-            "__destructor__", Hashmap_destructor,
-            "next", Hashmap_next,
-            "get", Hashmap_get,
-            "set", Hashmap_set,
-            "del", Hashmap_del,
-            "keys", Hashmap_keys,
-            "values", Hashmap_values,
-            NULL
-        );
-    }
-
-    return _Hashmap;
-}
+OODUCK_DEFINE_CLASS (
+    Hashmap,
+    new (
+        Class (), "Hashmap",
+        Iterable (), sizeof (struct Hashmap),
+        "__constructor__", Hashmap_constructor,
+        "__destructor__", Hashmap_destructor,
+        "next", Hashmap_next,
+        "get", Hashmap_get,
+        "set", Hashmap_set,
+        "del", Hashmap_del,
+        "keys", Hashmap_keys,
+        "values", Hashmap_values,
+        NULL
+    )
+)
 
 /* implementation */
 
@@ -51,11 +44,12 @@ static void *Hashmap_constructor (void *_self, va_list *app)
 static void *Hashmap_destructor (void *_self)
 {
     struct Hashmap *self = cast (Hashmap (), _self);
+    Class_destructor_m dtor = method (super (Hashmap ()), "__destructor__");
 
     delete (self->keys);
     delete (self->values);
 
-    return self;
+    return dtor (self);
 }
 
 static void *Hashmap_next (void *_self, const void *iterator)

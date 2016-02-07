@@ -11,23 +11,16 @@
 #include <ooduck/_defs/singleton.h>
 #include <ooduck/_priv/singleton.h>
 
-static const void *_Singleton = NULL;
-
-const void *Singleton (void)
-{
-    if (_Singleton == NULL)
-    {
-        _Singleton = new (
-            Class (), "Singleton",
-            Class (), sizeof (struct Singleton),
-            "__alloc__", Singleton_alloc,
-            "__constructor__", Singleton_constructor,
-            NULL
-        );
-    }
-
-    return _Singleton;
-}
+OODUCK_DEFINE_CLASS (
+    Singleton,
+    new (
+        Class (), "Singleton",
+        Class (), sizeof (struct Singleton),
+        "__alloc__", Singleton_alloc,
+        "__constructor__", Singleton_constructor,
+        NULL
+    )
+)
 
 /* implementation */
 

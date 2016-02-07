@@ -9,6 +9,7 @@
 #include <ooduck/string.h>
 #include <ooduck/collection.h>
 #include <ooduck/singleton.h>
+#include <ooduck/value.h>
 
 struct
 {
@@ -101,6 +102,24 @@ static void test_singleton (void)
     assert (a == b);
 }
 
+static void test_value (void)
+{
+    int i = 42, test = -1;
+    void *a = new (Value (), &i, sizeof (int));
+    void *b = new (Value (), &i, sizeof (int));
+
+    Value_get_m get = method (classOf (a), "get");
+    Object_equal_m equal = method (classOf (a), "equal");
+
+    get (a, &test, sizeof (int));
+
+    assert (i == test);
+    assert (equal (a, b));
+
+    delete (a);
+    delete (b);
+}
+
 typedef void (*testcase) (void);
 
 static struct
@@ -112,6 +131,7 @@ static struct
     { "collection", test_collection },
     { "iterable", test_iterable },
     { "singleton", test_singleton },
+    { "value", test_value },
     { NULL, NULL }
 };
 

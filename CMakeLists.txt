@@ -5,11 +5,15 @@ project (OODuck)
 set (OODUCK_AUTHOR "David Delassus <david.jose.delassus@gmail.com>")
 set (OODUCK_PACKAGE_NAME "OODuck")
 set (OODUCK_VERSION_MAJOR 0)
-set (OODUCK_VERSION_MINOR 3)
+set (OODUCK_VERSION_MINOR 4)
 set (OODUCK_LICENSE "MIT")
 
 # Build configuration
 set (CMAKE_C_FLAGS "--std=c99 -Wall -O2")
+
+if (WITH_PTHREAD)
+    set (CMAKE_C_FLAGS "-DHAVE_PTHREAD -DE4C_THREADSAFE -lpthread")
+endif (WITH_PTHREAD)
 
 if (WITH_DEBUG)
     set (CMAKE_BUILD_TYPE DEBUG)
@@ -37,6 +41,7 @@ add_library (ooduck SHARED
     "${PROJECT_SOURCE_DIR}/src/exceptions.c"
     "${PROJECT_SOURCE_DIR}/src/object.c"
     "${PROJECT_SOURCE_DIR}/src/singleton.c"
+    "${PROJECT_SOURCE_DIR}/src/value.c"
     "${PROJECT_SOURCE_DIR}/src/string.c"
     "${PROJECT_SOURCE_DIR}/src/iterable.c"
     "${PROJECT_SOURCE_DIR}/src/collection.c"
@@ -60,12 +65,16 @@ set (HEADERS
     "${PROJECT_SOURCE_DIR}/include/ooduck/asprintf.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/e4c.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/exceptions.h"
+    "${PROJECT_SOURCE_DIR}/include/ooduck/define.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/object.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/_defs/object.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/_priv/object.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/singleton.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/_defs/singleton.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/_priv/singleton.h"
+    "${PROJECT_SOURCE_DIR}/include/ooduck/value.h"
+    "${PROJECT_SOURCE_DIR}/include/ooduck/_defs/value.h"
+    "${PROJECT_SOURCE_DIR}/include/ooduck/_priv/value.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/string.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/_defs/string.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/_priv/string.h"

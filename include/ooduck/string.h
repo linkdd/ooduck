@@ -21,7 +21,7 @@
  * \extends Object
  * \brief String utility class.
  */
-const void *String (void);
+OODUCK_DECLARE_CLASS (String);
 
 /** @} */
 
