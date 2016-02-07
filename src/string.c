@@ -12,28 +12,21 @@
 #include <ooduck/_priv/string.h>
 #include <ooduck/asprintf.h>
 
-static const void *_String = NULL;
-
-const void *String (void)
-{
-    if (_String == NULL)
-    {
-        _String = new (
-            Class (), "String",
-            Object (), sizeof (struct String),
-            "__constructor__", String_constructor,
-            "__destructor__", String_destructor,
-            "equal", String_equal,
-            "copy", String_copy,
-            "format", String_format,
-            "len", String_len,
-            "cstr", String_cstr,
-            NULL
-        );
-    }
-
-    return _String;
-}
+OODUCK_DEFINE_CLASS (
+    String,
+    new (
+        Class (), "String",
+        Object (), sizeof (struct String),
+        "__constructor__", String_constructor,
+        "__destructor__", String_destructor,
+        "equal", String_equal,
+        "copy", String_copy,
+        "format", String_format,
+        "len", String_len,
+        "cstr", String_cstr,
+        NULL
+    )
+)
 
 /* implementation */
 
@@ -54,10 +47,11 @@ static void *String_constructor (void *_self, va_list *app)
 static void *String_destructor (void *_self)
 {
     struct String *self = cast (String (), _self);
+    Class_destructor_m dtor = method (super (String ()), "__destructor__");
     
     free (self->data);
 
-    return self;
+    return dtor (self);
 }
 
 static bool String_equal (const void *_self, const void *_other)

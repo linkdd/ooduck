@@ -240,7 +240,7 @@ static bool Object_equal (const void *_self, const void *other)
 
 static void *VTableEntry_constructor (void *_self, va_list *app)
 {
-    struct VTableEntry *self = _self;
+    struct VTableEntry *self = cast (VTableEntry (), _self);
     char *data = va_arg (*app, char *);
 
     asprintf (&(self->name), "%s", data);
@@ -252,10 +252,11 @@ static void *VTableEntry_constructor (void *_self, va_list *app)
 static void *VTableEntry_destructor (void *_self)
 {
     struct VTableEntry *self = cast (VTableEntry (), _self);
+    Class_destructor_m dtor = method (super (VTableEntry ()), "__destructor__");
 
     free (self->name);
 
-    return self;
+    return dtor (self);
 }
 
 static struct VTableEntry **VTableEntry_add (
@@ -296,7 +297,7 @@ static bool Class_alloc (void *_class, void **instance)
 
 static void *Class_constructor (void *_self, va_list *app)
 {
-    struct Class *self = _self;
+    struct Class *self = cast (Class (), _self);
     int nentries = 1;
     struct VTableEntry **entries = calloc (1, sizeof (struct VTableEntry *));
     char *name = NULL;

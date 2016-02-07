@@ -11,26 +11,19 @@
 #include <ooduck/_defs/value.h>
 #include <ooduck/_priv/value.h>
 
-static const void *_Value = NULL;
-
-const void *Value (void)
-{
-    if (_Value == NULL)
-    {
-        _Value = new (
-            Class (), "Value",
-            Object (), sizeof (struct Value),
-            "__constructor__", Value_constructor,
-            "__destructor__", Value_destructor,
-            "equal", Value_equal,
-            "get", Value_get,
-            "set", Value_set,
-            NULL
-        );
-    }
-
-    return _Value;
-}
+OODUCK_DEFINE_CLASS (
+    Value,
+    new (
+        Class (), "Value",
+        Object (), sizeof (struct Value),
+        "__constructor__", Value_constructor,
+        "__destructor__", Value_destructor,
+        "equal", Value_equal,
+        "get", Value_get,
+        "set", Value_set,
+        NULL
+    )
+)
 
 /* implementation */
 
@@ -52,10 +45,11 @@ static void *Value_constructor (void *_self, va_list *app)
 static void *Value_destructor (void *_self)
 {
     struct Value *self = cast (Value (), _self);
+    Class_destructor_m dtor = method (super (Value ()), "__destructor__");
 
     Value_set (self, NULL, 0);
 
-    return self;
+    return dtor (self);
 }
 
 static bool Value_equal (const void *_self, const void *_other)

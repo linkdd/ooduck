@@ -24,7 +24,7 @@
  * Using ``memcpy()`` to copy memory of C object to OODuck object.
  * Using ``memcmp()`` to determine equality.
  */
-const void *Value (void);
+OODUCK_DECLARE_CLASS (Value);
 
 /** @} */
 

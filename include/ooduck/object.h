@@ -16,6 +16,7 @@
 #include <string.h>
 
 #include <ooduck/exceptions.h>
+#include <ooduck/define.h>
 
 /**
  * \addtogroup OODuck
@@ -27,21 +28,21 @@
  * \class Object
  * \brief Base class for everything.
  */
-const void *Object (void);
+OODUCK_DECLARE_CLASS (Object);
 
 /**
  * \class VTableEntry
  * \extends Object
  * \brief Entry for dynamic VTable.
  */
-const void *VTableEntry (void);
+OODUCK_DECLARE_CLASS (VTableEntry);
 
 /**
  * \class Class
  * \extends Object
  * \brief Class used to build new class dynamically.
  */
-const void *Class (void);
+OODUCK_DECLARE_CLASS (Class);
 
 /** @} */
 

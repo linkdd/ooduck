@@ -25,7 +25,7 @@
  *
  * Uses a Collection for keys and values.
  */
-const void *Hashmap (void);
+OODUCK_DECLARE_CLASS (Hashmap);
 
 /** @} */
 

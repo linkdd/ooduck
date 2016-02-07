@@ -22,7 +22,7 @@
  * \see Item
  * \brief Collection of item.
  */
-const void *Collection (void);
+OODUCK_DECLARE_CLASS (Collection);
 
 /**
  * \class Item
@@ -31,7 +31,7 @@ const void *Collection (void);
  *
  * Implements a doubly linked list of Item objects.
  */
-const void *Item (void);
+OODUCK_DECLARE_CLASS (Item);
 
 /** @} */
 

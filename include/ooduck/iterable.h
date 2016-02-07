@@ -24,7 +24,7 @@
  *
  * <b>MUST</b> be subclassed.
  */
-const void *Iterable (void);
+OODUCK_DECLARE_CLASS (Iterable);
 
 /**
  * \class Iterator
@@ -32,7 +32,7 @@ const void *Iterable (void);
  * \relates Iterable
  * \brief Object used to iterate over Iterable.
  */
-const void *Iterator (void);
+OODUCK_DECLARE_CLASS (Iterator);
 
 /** @} */
 

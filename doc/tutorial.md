@@ -79,32 +79,34 @@ struct MyClass
 };
 ~~~~~~~~~~~~~~~
 
-A Class is an Object, like everything else, then we can create it with ``new()``:
+A Class is an Object, like everything else, then we can create it with ``new()``
+using the macro ``OODUCK_DEFINE_CLASS`` which handles thread-safety:
 
 ~~~~~~~~~~~~~~~{.c}
-static const void *_MyClass = NULL;
+OODUCK_DEFINE_CLASS (
+    MyClass,
+    new (
+        Class (),               /* we are creating a new Class */
+        "MyClass",              /* our class name */
+        Object (),              /* parent class */
+        sizeof (struct MyClass) /* in-memory size of our class */
 
-const void *MyClass (void)
-{
-    if (_MyClass == NULL)
-    {
-        _MyClass = new (
-            Class (),               /* we are creating a new Class */
-            "MyClass",              /* our class name */
-            Object (),              /* parent class */
-            sizeof (struct MyClass) /* in-memory size of our class */
+        /* VTable */
+        "__constructor__", MyClass_constructor,
+        "__destructor__", MyClass_destructor,
+        "my_method", MyClass_my_method,
 
-            /* VTable */
-            "__constructor__", MyClass_constructor,
-            "my_method", MyClass_my_method,
+        /* End of VTable */
+        NULL
+    )
+)
+~~~~~~~~~~~~~~~
 
-            /* End of VTable */
-            NULL
-        );
-    }
+In the header, we must add the declaration using the macro ``OODUCK_DECLARE_CLASS``,
+allowing us to call ``MyClass ()``:
 
-    return _MyClass;
-}
+~~~~~~~~~~~~~~~{.c}
+OODUCK_DECLARE_CLASS (MyClass);
 ~~~~~~~~~~~~~~~
 
 Now, we can proceed to implementation:
@@ -123,6 +125,16 @@ static void *MyClass_constructor (void *_self, va_list *app)
     self->mydata = data;
 
     return self;
+}
+
+static void *MyClass_destructor (void *_self)
+{
+    struct MyClass *self = cast (MyClass (), _self);
+    Class_destructor_m dtor = method (super (MyClass ()), "__destructor__");
+
+    /* do your stuff */
+
+    return dtor (self);
 }
 
 static int MyClass_my_method (const void *_self)
