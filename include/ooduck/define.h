@@ -22,8 +22,7 @@
             return _##N;                                    \
         }
 #else
-#   define OODUCK_DEFINE_CLASS(N, _C_)                         \
-        pthread_once_t N##Initialized = PTHREAD_ONCE_INIT;  \
+#   define OODUCK_DEFINE_CLASS(N, _C_)                      \
         static const void *_##N = NULL;                     \
                                                             \
         const void *N (void)                                \
