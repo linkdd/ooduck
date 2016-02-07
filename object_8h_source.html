@@ -121,50 +121,51 @@ $(document).ready(function(){initNavTree('object_8h_source.html','');});
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;ooduck/exceptions.h&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="struct_object.html">Object</a> (<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="struct_v_table_entry.html">VTableEntry</a> (<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="struct_class.html">Class</a> (<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> * (*Object_ref_m) (<span class="keywordtype">void</span> *);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">typedef</span> void (*Object_unref_m) (<span class="keywordtype">void</span> *);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">typedef</span> bool (*Object_equal_m) (<span class="keyword">const</span> <span class="keywordtype">void</span> *, <span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">typedef</span> bool (*Class_alloc_m) (<span class="keywordtype">void</span> *, <span class="keywordtype">void</span> **);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> * (*Class_constructor_m) (<span class="keywordtype">void</span> *, va_list *);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> * (*Class_destructor_m) (<span class="keywordtype">void</span> *);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__static.html#ga1991a4be001978f42cc3fefe824ccea8">isA</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *<span class="keyword">class</span>);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__static.html#ga39456411fc926568e9f29e22371285fc">isOf</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *<span class="keyword">class</span>);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="keywordtype">void</span> *<a class="code" href="group__static.html#gacaebd367926342e0cc82066431bb8e2e">cast</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *<span class="keyword">class</span>, <span class="keyword">const</span> <span class="keywordtype">void</span> *_self);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="group__static.html#gaf5d6e937d52fcf457bb9e1a850cafc23">super</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_class);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keywordtype">void</span> *<a class="code" href="group__static.html#gabb9e3d17823733a769c30ab006146fde">method</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_class, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="group__static.html#gaeb8ced368e768c5b59f32518476108a4">classOf</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self);</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="group__static.html#ga4e6595c8bba4cbe8325064e54a0cd8be">sizeOf</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keywordtype">void</span> *<span class="keyword">new</span> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_class, ...);</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keywordtype">void</span> <span class="keyword">delete</span> (<span class="keywordtype">void</span> *_self);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keywordtype">void</span> *<a class="code" href="struct_object.html#a0db258b1b2c81f071319d5b4430510ea">ref</a> (<span class="keywordtype">void</span> *_self);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keywordtype">void</span> <a class="code" href="struct_object.html#a892be1c5131a5b98bf0a35f2ffe4030b">unref</a> (<span class="keywordtype">void</span> *_self);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__static.html#ga7b78420eea629ef862b85d2950ac7989">ooduck_init</a> (<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OODUCK_OBJECT_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;ooduck/define.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;OODUCK_DECLARE_CLASS (<a class="code" href="struct_object.html">Object</a>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;OODUCK_DECLARE_CLASS (<a class="code" href="struct_v_table_entry.html">VTableEntry</a>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;OODUCK_DECLARE_CLASS (<a class="code" href="struct_class.html">Class</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> * (*Object_ref_m) (<span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">typedef</span> void (*Object_unref_m) (<span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">typedef</span> bool (*Object_equal_m) (<span class="keyword">const</span> <span class="keywordtype">void</span> *, <span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">typedef</span> bool (*Class_alloc_m) (<span class="keywordtype">void</span> *, <span class="keywordtype">void</span> **);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> * (*Class_constructor_m) (<span class="keywordtype">void</span> *, va_list *);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> * (*Class_destructor_m) (<span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__static.html#ga1991a4be001978f42cc3fefe824ccea8">isA</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *<span class="keyword">class</span>);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__static.html#ga39456411fc926568e9f29e22371285fc">isOf</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *<span class="keyword">class</span>);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keywordtype">void</span> *<a class="code" href="group__static.html#gacaebd367926342e0cc82066431bb8e2e">cast</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *<span class="keyword">class</span>, <span class="keyword">const</span> <span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="group__static.html#gaf5d6e937d52fcf457bb9e1a850cafc23">super</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_class);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keywordtype">void</span> *<a class="code" href="group__static.html#gabb9e3d17823733a769c30ab006146fde">method</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_class, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="group__static.html#gaeb8ced368e768c5b59f32518476108a4">classOf</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="group__static.html#ga4e6595c8bba4cbe8325064e54a0cd8be">sizeOf</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keywordtype">void</span> *<span class="keyword">new</span> (<span class="keyword">const</span> <span class="keywordtype">void</span> *_class, ...);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keywordtype">void</span> <span class="keyword">delete</span> (<span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="keywordtype">void</span> *<a class="code" href="struct_object.html#a0db258b1b2c81f071319d5b4430510ea">ref</a> (<span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="keywordtype">void</span> <a class="code" href="struct_object.html#a892be1c5131a5b98bf0a35f2ffe4030b">unref</a> (<span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__static.html#ga7b78420eea629ef862b85d2950ac7989">ooduck_init</a> (<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OODUCK_OBJECT_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="group__static_html_gacaebd367926342e0cc82066431bb8e2e"><div class="ttname"><a href="group__static.html#gacaebd367926342e0cc82066431bb8e2e">cast</a></div><div class="ttdeci">void * cast(const void *class, const void *_self)</div><div class="ttdoc">Assert that object is of specified class. </div></div>
 <div class="ttc" id="struct_v_table_entry_html"><div class="ttname"><a href="struct_v_table_entry.html">VTableEntry</a></div><div class="ttdoc">Entry for dynamic VTable. </div><div class="ttdef"><b>Definition:</b> object.h:20</div></div>
 <div class="ttc" id="group__static_html_gaeb8ced368e768c5b59f32518476108a4"><div class="ttname"><a href="group__static.html#gaeb8ced368e768c5b59f32518476108a4">classOf</a></div><div class="ttdeci">const void * classOf(const void *_self)</div><div class="ttdoc">Get class of object. </div></div>

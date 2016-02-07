@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vtableentry',['VTableEntry',['../struct_v_table_entry.html',1,'']]]
+  ['singleton',['Singleton',['../struct_singleton.html',1,'']]],
+  ['string',['String',['../struct_string.html',1,'']]]
 ];

@@ -3,7 +3,7 @@ var group___o_o_duck =
     [ "Collection", "struct_collection.html", [
       [ "add", "struct_collection.html#aa17c38ee4d6a6699c5087acccfb7bc16", null ],
       [ "clear", "struct_collection.html#ae2edab0b1f75be95a058d5732ceb5ef9", null ],
-      [ "contains", "struct_collection.html#adb02073e9f8d176b33eb10ca7b8bba55", null ],
+      [ "contains", "struct_collection.html#a228c79de2fadd4d68ecfe18095a7a423", null ],
       [ "del", "struct_collection.html#a9fc00c2e02373c7578653921386addbe", null ]
     ] ],
     [ "Item", "struct_item.html", [
@@ -25,6 +25,14 @@ var group___o_o_duck =
       [ "get", "struct_iterator.html#a8370a66f11d1b5bafaf77dee6a6ddbd9", null ],
       [ "next", "struct_iterator.html#a49c9d6bf1629831293597cff64a7182e", null ]
     ] ],
+    [ "List", "struct_list.html", [
+      [ "append", "struct_list.html#a4f3cd0d32db5ea71e12a83a94f3048bb", null ],
+      [ "get", "struct_list.html#a505a7a0e327e554d205fd6b85830ae0b", null ],
+      [ "insert", "struct_list.html#a5a6b7a5a048678e3c73294053da4d954", null ],
+      [ "length", "struct_list.html#a391728ef328d7ffac722ac36fe2fe998", null ],
+      [ "pop", "struct_list.html#a7eec11a31b7215eb677fb5e63729c799", null ],
+      [ "preprend", "struct_list.html#a668d772c567bee42de7a53f6802dc0e0", null ]
+    ] ],
     [ "Object", "struct_object.html", [
       [ "equal", "struct_object.html#a2ec84eec3fa9f5ee777f370b3f292dd8", null ],
       [ "ref", "struct_object.html#a0db258b1b2c81f071319d5b4430510ea", null ],
@@ -43,5 +51,10 @@ var group___o_o_duck =
       [ "cstr", "struct_string.html#a54025e601e51b86932da9b8745d9d943", null ],
       [ "format", "struct_string.html#a97d3310d3342d8e67ee46565e0ff7314", null ],
       [ "len", "struct_string.html#ac79aa17025549cead3d5a0294b4e7592", null ]
+    ] ],
+    [ "Value", "struct_value.html", [
+      [ "__constructor__", "struct_value.html#a5b8e5815f23886dcc7b5f5bda976f2d3", null ],
+      [ "get", "struct_value.html#a0b5ee14d66f958a3cc4de7d1a3c593b3", null ],
+      [ "set", "struct_value.html#a5e5b703d686058cc598105cb04b47aa7", null ]
     ] ]
 ];

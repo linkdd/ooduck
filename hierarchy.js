@@ -9,11 +9,14 @@ var hierarchy =
       ] ],
       [ "Item", "struct_item.html", null ],
       [ "Iterable", "struct_iterable.html", [
-        [ "Collection", "struct_collection.html", null ],
+        [ "Collection", "struct_collection.html", [
+          [ "List", "struct_list.html", null ]
+        ] ],
         [ "Hashmap", "struct_hashmap.html", null ]
       ] ],
       [ "Iterator", "struct_iterator.html", null ],
       [ "String", "struct_string.html", null ],
+      [ "Value", "struct_value.html", null ],
       [ "VTableEntry", "struct_v_table_entry.html", null ]
     ] ],
     [ "RuntimeError", "class_runtime_error.html", [

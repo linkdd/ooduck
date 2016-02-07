@@ -10,10 +10,12 @@ var annotated =
     [ "Item", "struct_item.html", "struct_item" ],
     [ "Iterable", "struct_iterable.html", "struct_iterable" ],
     [ "Iterator", "struct_iterator.html", "struct_iterator" ],
+    [ "List", "struct_list.html", "struct_list" ],
     [ "NotImplementedError", "class_not_implemented_error.html", null ],
     [ "Object", "struct_object.html", "struct_object" ],
     [ "RuntimeError", "class_runtime_error.html", null ],
     [ "Singleton", "struct_singleton.html", null ],
     [ "String", "struct_string.html", "struct_string" ],
+    [ "Value", "struct_value.html", "struct_value" ],
     [ "VTableEntry", "struct_v_table_entry.html", null ]
 ];

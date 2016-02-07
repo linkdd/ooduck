@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['sizeof',['sizeOf',['../group__static.html#ga4e6595c8bba4cbe8325064e54a0cd8be',1,'object.h']]],
-  ['super',['super',['../group__static.html#gaf5d6e937d52fcf457bb9e1a850cafc23',1,'object.h']]]
+  ['ref',['ref',['../struct_object.html#a0db258b1b2c81f071319d5b4430510ea',1,'Object::ref()'],['../group__static.html#ga95870a8ecf8cda3ce7e0a654bd192d47',1,'ref():&#160;object.h']]]
 ];

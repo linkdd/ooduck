@@ -147,30 +147,26 @@ $(document).ready(function(){initNavTree('page.html','');});
 <div class="line"></div>
 <div class="line">    <span class="keywordtype">int</span> mydata;</div>
 <div class="line">};</div>
-</div><!-- fragment --><p>A <a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a> is an <a class="el" href="struct_object.html" title="Base class for everything. ">Object</a>, like everything else, then we can create it with <code><a class="el" href="group__static.html#gaba6d9a91eeeea6a5c41a59549a29d6a6" title="Allocate new object. ">new()</a></code>:</p>
-<div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">void</span> *_MyClass = NULL;</div>
+</div><!-- fragment --><p>A <a class="el" href="struct_class.html" title="Class used to build new class dynamically. ">Class</a> is an <a class="el" href="struct_object.html" title="Base class for everything. ">Object</a>, like everything else, then we can create it with <code><a class="el" href="group__static.html#gaba6d9a91eeeea6a5c41a59549a29d6a6" title="Allocate new object. ">new()</a></code> using the macro <code>OODUCK_DEFINE_CLASS</code> which handles thread-safety:</p>
+<div class="fragment"><div class="line">OODUCK_DEFINE_CLASS (</div>
+<div class="line">    MyClass,</div>
+<div class="line">    <span class="keyword">new</span> (</div>
+<div class="line">        <a class="code" href="struct_class.html">Class</a> (),               <span class="comment">/* we are creating a new Class */</span></div>
+<div class="line">        <span class="stringliteral">&quot;MyClass&quot;</span>,              <span class="comment">/* our class name */</span></div>
+<div class="line">        <a class="code" href="struct_object.html">Object</a> (),              <span class="comment">/* parent class */</span></div>
+<div class="line">        <span class="keyword">sizeof</span> (<span class="keyword">struct</span> MyClass) <span class="comment">/* in-memory size of our class */</span></div>
 <div class="line"></div>
-<div class="line"><span class="keyword">const</span> <span class="keywordtype">void</span> *MyClass (<span class="keywordtype">void</span>)</div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordflow">if</span> (_MyClass == NULL)</div>
-<div class="line">    {</div>
-<div class="line">        _MyClass = <span class="keyword">new</span> (</div>
-<div class="line">            <a class="code" href="struct_class.html">Class</a> (),               <span class="comment">/* we are creating a new Class */</span></div>
-<div class="line">            <span class="stringliteral">&quot;MyClass&quot;</span>,              <span class="comment">/* our class name */</span></div>
-<div class="line">            <a class="code" href="struct_object.html">Object</a> (),              <span class="comment">/* parent class */</span></div>
-<div class="line">            <span class="keyword">sizeof</span> (<span class="keyword">struct </span>MyClass) <span class="comment">/* in-memory size of our class */</span></div>
+<div class="line">        <span class="comment">/* VTable */</span></div>
+<div class="line">        <span class="stringliteral">&quot;__constructor__&quot;</span>, MyClass_constructor,</div>
+<div class="line">        <span class="stringliteral">&quot;__destructor__&quot;</span>, MyClass_destructor,</div>
+<div class="line">        <span class="stringliteral">&quot;my_method&quot;</span>, MyClass_my_method,</div>
 <div class="line"></div>
-<div class="line">            <span class="comment">/* VTable */</span></div>
-<div class="line">            &quot;<a class="code" href="struct_item.html#abadfa85fced518001f3a186830fee0ff">__constructor__</a>&quot;, MyClass_constructor,</div>
-<div class="line">            &quot;my_method&quot;, MyClass_my_method,</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">/* End of VTable */</span></div>
-<div class="line">            NULL</div>
-<div class="line">        );</div>
-<div class="line">    }</div>
-<div class="line"></div>
-<div class="line">    <span class="keywordflow">return</span> _MyClass;</div>
-<div class="line">}</div>
+<div class="line">        <span class="comment">/* End of VTable */</span></div>
+<div class="line">        NULL</div>
+<div class="line">    )</div>
+<div class="line">)</div>
+</div><!-- fragment --><p>In the header, we must add the declaration using the macro <code>OODUCK_DECLARE_CLASS</code>, allowing us to call <code>MyClass ()</code>:</p>
+<div class="fragment"><div class="line">OODUCK_DECLARE_CLASS (MyClass);</div>
 </div><!-- fragment --><p>Now, we can proceed to implementation:</p>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> *MyClass_constructor (<span class="keywordtype">void</span> *_self, va_list *app)</div>
 <div class="line">{</div>
@@ -185,6 +181,16 @@ $(document).ready(function(){initNavTree('page.html','');});
 <div class="line">    <span class="keyword">self</span>-&gt;mydata = data;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> *MyClass_destructor (<span class="keywordtype">void</span> *_self)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">struct </span>MyClass *<span class="keyword">self</span> = <a class="code" href="group__static.html#gacaebd367926342e0cc82066431bb8e2e">cast</a> (MyClass (), _self);</div>
+<div class="line">    Class_destructor_m dtor = <a class="code" href="group__static.html#gabb9e3d17823733a769c30ab006146fde">method</a> (<a class="code" href="group__static.html#gaf5d6e937d52fcf457bb9e1a850cafc23">super</a> (MyClass ()), <span class="stringliteral">&quot;__destructor__&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">/* do your stuff */</span></div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> dtor (<span class="keyword">self</span>);</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">int</span> MyClass_my_method (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self)</div>

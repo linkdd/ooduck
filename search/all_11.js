@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['unref',['unref',['../struct_object.html#a892be1c5131a5b98bf0a35f2ffe4030b',1,'Object::unref()'],['../group__static.html#ga10a09ffce3b6404de1e1de70a47116d0',1,'unref():&#160;object.h']]],
-  ['use',['use',['../group__exceptions4c.html#gaeda5446032a08fece73ec569b861a72c',1,'e4c.h']]],
-  ['using',['using',['../group__exceptions4c.html#gabe1fc0d5310579fdfe7cca02506d06c2',1,'e4c.h']]]
+  ['tutorial',['Tutorial',['../page.html',1,'']]],
+  ['throw',['throw',['../group__exceptions4c.html#ga482d649fcaafd28584629da3606e4ea7',1,'e4c.h']]],
+  ['try',['try',['../group__exceptions4c.html#ga28599e8ac99ea9faff60a2258a914aee',1,'e4c.h']]],
+  ['type',['type',['../structe4c__exception__.html#ad50162f7a5b6dd677286f5c31af79655',1,'e4c_exception_']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['object',['Object',['../struct_object.html',1,'']]]
+  ['notimplementederror',['NotImplementedError',['../class_not_implemented_error.html',1,'']]]
 ];

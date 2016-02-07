@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['singleton',['Singleton',['../struct_singleton.html',1,'']]],
-  ['string',['String',['../struct_string.html',1,'']]]
+  ['runtimeerror',['RuntimeError',['../class_runtime_error.html',1,'']]]
 ];

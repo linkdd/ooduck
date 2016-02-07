@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ref',['ref',['../struct_object.html#a0db258b1b2c81f071319d5b4430510ea',1,'Object::ref()'],['../group__static.html#ga95870a8ecf8cda3ce7e0a654bd192d47',1,'ref():&#160;object.h']]]
+  ['pop',['pop',['../struct_list.html#a7eec11a31b7215eb677fb5e63729c799',1,'List']]],
+  ['preprend',['preprend',['../struct_list.html#a668d772c567bee42de7a53f6802dc0e0',1,'List']]]
 ];

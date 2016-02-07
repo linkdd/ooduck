@@ -125,6 +125,7 @@ Inheritance diagram for Collection:</div>
   <map id="Collection_map" name="Collection_map">
 <area href="struct_iterable.html" title="Abstract class which allow to iterate over object. " alt="Iterable" shape="rect" coords="0,56,68,80"/>
 <area href="struct_object.html" title="Base class for everything. " alt="Object" shape="rect" coords="0,0,68,24"/>
+<area href="struct_list.html" title="List implementation. " alt="List" shape="rect" coords="0,168,68,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -139,9 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9fc00c2e02373c7578653921386addbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_collection.html#a9fc00c2e02373c7578653921386addbe">del</a> (void *self, const void *object)</td></tr>
 <tr class="memdesc:a9fc00c2e02373c7578653921386addbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove item from collection.  <a href="#a9fc00c2e02373c7578653921386addbe">More...</a><br /></td></tr>
 <tr class="separator:a9fc00c2e02373c7578653921386addbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb02073e9f8d176b33eb10ca7b8bba55"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_collection.html#adb02073e9f8d176b33eb10ca7b8bba55">contains</a> (\param object <a class="el" href="struct_object.html">Object</a> instance(will be unreferenced).void *self, const void *object)</td></tr>
-<tr class="memdesc:adb02073e9f8d176b33eb10ca7b8bba55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if <code>object</code> is in the collection.  <a href="#adb02073e9f8d176b33eb10ca7b8bba55">More...</a><br /></td></tr>
-<tr class="separator:adb02073e9f8d176b33eb10ca7b8bba55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a228c79de2fadd4d68ecfe18095a7a423"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_collection.html#a228c79de2fadd4d68ecfe18095a7a423">contains</a> (void *self, const void *object)</td></tr>
+<tr class="memdesc:a228c79de2fadd4d68ecfe18095a7a423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if <code>object</code> is in the collection.  <a href="#a228c79de2fadd4d68ecfe18095a7a423">More...</a><br /></td></tr>
+<tr class="separator:a228c79de2fadd4d68ecfe18095a7a423"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_struct_iterable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_iterable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_iterable.html">Iterable</a></td></tr>
 <tr class="memitem:a6e5e0c22d88ad1c0e5819442611bd2e3 inherit pub_methods_struct_iterable"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_iterable.html#a6e5e0c22d88ad1c0e5819442611bd2e3">next</a> (void *self, const void *iterator)</td></tr>
 <tr class="separator:a6e5e0c22d88ad1c0e5819442611bd2e3 inherit pub_methods_struct_iterable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,7 +193,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>The object will be encapsulated in <code><a class="el" href="struct_item.html" title="Collection item. ">Item</a></code> object. Calls <code><a class="el" href="struct_collection.html#adb02073e9f8d176b33eb10ca7b8bba55" title="Check if object is in the collection. ">Collection::contains()</a></code>. </p>
+<p>The object will be encapsulated in <code><a class="el" href="struct_item.html" title="Collection item. ">Item</a></code> object. Calls <code><a class="el" href="struct_collection.html#a228c79de2fadd4d68ecfe18095a7a423" title="Check if object is in the collection. ">Collection::contains()</a></code>. </p>
 
 </div>
 </div>
@@ -220,14 +221,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="adb02073e9f8d176b33eb10ca7b8bba55"></a>
+<a class="anchor" id="a228c79de2fadd4d68ecfe18095a7a423"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool contains </td>
           <td>(</td>
-          <td class="paramtype">\param object <a class="el" href="struct_object.html">Object</a> instance(will be unreferenced).void *&#160;</td>
+          <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>self</em>, </td>
         </tr>
         <tr>
@@ -247,6 +248,7 @@ Public Member Functions</h2></td></tr>
 <p>Check if <code>object</code> is in the collection. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">object</td><td><a class="el" href="struct_object.html" title="Base class for everything. ">Object</a> instance (will be unreferenced).void *self, const void *object)</td></tr>
     <tr><td class="paramname">self</td><td><a class="el" href="struct_collection.html" title="Collection of item. ">Collection</a> object. </td></tr>
     <tr><td class="paramname">object</td><td><a class="el" href="struct_object.html" title="Base class for everything. ">Object</a> instance. </td></tr>
   </table>
