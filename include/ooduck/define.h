@@ -7,7 +7,7 @@
 #ifdef HAVE_PTHREAD
 #   include <pthread.h>
 
-#   define OODUCK_DEFINE_CLASS(N, _C_)                         \
+#   define OODUCK_DEFINE_CLASS(N, _C_)                      \
         pthread_once_t N##Initialized = PTHREAD_ONCE_INIT;  \
         static const void *_##N = NULL;                     \
                                                             \

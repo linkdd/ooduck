@@ -259,7 +259,7 @@ static void *VTableEntry_destructor (void *_self)
     return dtor (self);
 }
 
-static struct VTableEntry **VTableEntry_add (
+static struct VTableEntry **_VTableEntry_add (
     struct VTableEntry **entries,
     int nentries,
     char *name,
@@ -309,7 +309,7 @@ static void *Class_constructor (void *_self, va_list *app)
     while ((name = va_arg (*app, char *)) != NULL)
     {
         void *func = va_arg (*app, void *);
-        entries = VTableEntry_add (entries, nentries++, name, func);
+        entries = _VTableEntry_add (entries, nentries++, name, func);
     }
 
     self->vtable = entries;

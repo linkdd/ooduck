@@ -115,7 +115,8 @@ static void Hashmap_del (void *_self, const void *key)
 
     if (contains (self->keys, key))
     {
-        void *oldvalue = Hashmap_get (self, key);
+        Hashmap_get_m get = method (classOf (self), "get");
+        void *oldvalue = get (self, key);
         del (self->keys, key);
         del (self->values, oldvalue);
     }
