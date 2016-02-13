@@ -19,10 +19,10 @@ static bool Object_equal (const void *_self, const void *_other);
 
 static void *VTableEntry_constructor (void *_self, va_list *app);
 static void *VTableEntry_destructor (void *_self);
-static struct VTableEntry **VTableEntry_add (struct VTableEntry **entries,
-                                             int nentries,
-                                             char *name,
-                                             void *func);
+static struct VTableEntry **_VTableEntry_add (struct VTableEntry **entries,
+                                              int nentries,
+                                              char *name,
+                                              void *func);
 
 static bool Class_alloc (void *_self, void **instance);
 static void *Class_constructor (void *_self, va_list *app);

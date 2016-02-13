@@ -6,6 +6,7 @@ set (OODUCK_AUTHOR "David Delassus <david.jose.delassus@gmail.com>")
 set (OODUCK_PACKAGE_NAME "OODuck")
 set (OODUCK_VERSION_MAJOR 0)
 set (OODUCK_VERSION_MINOR 4)
+set (OODUCK_VERSION_PATCH 1)
 set (OODUCK_LICENSE "MIT")
 
 # Build configuration

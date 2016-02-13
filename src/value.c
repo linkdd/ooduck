@@ -34,10 +34,11 @@ static void *Value_constructor (void *_self, va_list *app)
 
     Class_constructor_m ctor = method (super (Value ()), "__constructor__");
     struct Value *self = ctor (_self, app);
+    Value_set_m set = method (classOf (self), "set");
 
     self->val = NULL;
 
-    Value_set (self, valptr, valsz);
+    set (self, valptr, valsz);
 
     return self;
 }
@@ -47,7 +48,8 @@ static void *Value_destructor (void *_self)
     struct Value *self = cast (Value (), _self);
     Class_destructor_m dtor = method (super (Value ()), "__destructor__");
 
-    Value_set (self, NULL, 0);
+    Value_set_m set = method (classOf (self), "set");
+    set (self, NULL, 0);
 
     return dtor (self);
 }

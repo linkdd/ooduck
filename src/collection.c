@@ -57,8 +57,9 @@ static void *Collection_destructor (void *_self)
 {
     struct Collection *self = cast (Collection (), _self);
     Class_destructor_m dtor = method (super (Collection ()), "__destructor__");
+    Collection_clear_m clear = method (classOf (self), "clear");
 
-    Collection_clear (self);
+    clear (self);
 
     return dtor (self);
 }
@@ -85,9 +86,11 @@ static void Collection_clear (void *_self)
 
     if (self->items != NULL)
     {
+        Collection_del_m del = method (classOf (self), "del");
+
         while (self->items != NULL)
         {
-            Collection_del (self, Item_deref (self->items));
+            del (self, Item_deref (self->items));
         }
     }
 }
@@ -95,8 +98,9 @@ static void Collection_clear (void *_self)
 static void Collection_add (void *_self, const void *item)
 {
     struct Collection *self = cast (Collection (), _self);
+    Collection_contains_m contains = method (classOf (self), "contains");
 
-    if (!Collection_contains (self, item))
+    if (!contains (self, item))
     {
         void *itemobj = new (Item (), item);
 
@@ -170,7 +174,8 @@ static struct Item *_Collection_getitem (void *_self, const void *item)
 
     while (tmp != NULL)
     {
-        void *obj = Item_deref (tmp);
+        Item_deref_m deref = method (classOf (tmp), "deref");
+        void *obj = deref (tmp);
         Object_equal_m cmp = method (classOf (obj), "equal");
 
         if (cmp (obj, item))
