@@ -17,6 +17,12 @@ Build system is based on CMake:
     $ cmake ..
     $ make
 
+With multi-threading support:
+
+    $ mkdir __build__ && cd __build__
+    $ cmake .. -DWITH_PTHREAD=1
+    $ make
+
 Or in debug mode:
 
     $ mkdir __build__ && cd __build__
