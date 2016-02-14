@@ -14,15 +14,12 @@
 static void *Collection_constructor (void *_self, va_list *app);
 static void *Collection_destructor (void *_self);
 
-static void *Collection_next (void *_self, const void *iterator);
+static bool Collection_contains (const void *_self, const void *item);
 static void Collection_clear (void *_self);
+static void *Collection_next (const void *_self, const void *iterator);
+
 static void Collection_add (void *_self, const void *item);
 static void Collection_del (void *_self, const void *item);
-static bool Collection_contains (void *_self, const void *item);
 
-static struct Item *_Collection_getitem (void *_self, const void *item);
-
-static void *Item_constructor (void *_self, va_list *app);
-static void *Item_destructor (void *_self);
-
-static void *Item_deref (void *_self);
+static void *_Collection_get_node (const void *_self, const void *item);
+static void _Collection_del_node (void *_self, void *_node);

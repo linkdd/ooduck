@@ -27,6 +27,15 @@
 OODUCK_DECLARE_CLASS (Iterable);
 
 /**
+ * \class IterableNode
+ * \extends Object
+ * \brief Abstract class to encapsulate item objects.
+ *
+ * <b>MUST</b> be subclassed.
+ */
+OODUCK_DECLARE_CLASS (IterableNode);
+
+/**
  * \class Iterator
  * \extends Object
  * \relates Iterable
@@ -37,7 +46,30 @@ OODUCK_DECLARE_CLASS (Iterator);
 /** @} */
 
 /**
- * \fn void *Iterable::next (void *self, const void *iterator)
+ * \fn bool Iterable::contains (const void *self, const void *object)
+ * \param object Object instance (will be unreferenced).void *self, const void *object)
+ * \memberof Iterable
+ * \brief Check if ``object`` is in the collection.
+ * \param self Iterable object.
+ * \param object Object instance.
+ * \return ``TRUE`` if object is in collection, ``FALSE`` otherwise.
+ *
+ * <b>MUST</b> be implemented in a subclass.
+ */
+typedef bool (*Iterable_contains_m) (const void *, const void *);
+
+/**
+ * \fn void Iterable::clear (void *self)
+ * \memberof Iterable
+ * \brief Remove all items from iterable.
+ * \param self Iterable object.
+ *
+ * <b>MUST</b> be implemented in a subclass.
+ */
+typedef void (*Iterable_clear_m) (void *);
+
+/**
+ * \fn void *Iterable::next (const void *self, const void *iterator)
  * \memberof Iterable
  * \param self Iterable object.
  * \param iterator Iterator object pointing to current item.
@@ -46,7 +78,25 @@ OODUCK_DECLARE_CLASS (Iterator);
  *
  * <b>MUST</b> be implemented in a subclass.
  */
-typedef void *(*Iterable_next_m) (void *, const void *);
+typedef void *(*Iterable_next_m) (const void *, const void *);
+
+/**
+ * \fn void *IterableNode::__constructor__ (void *self, const void *data)
+ * \memberof IterableNode
+ * \brief Build new node.
+ * \param self IterableNode instance.
+ * \param data Data to encapsulate.
+ * \return Initialized instance.
+ */
+
+/**
+ * \fn void *IterableNode::data (const void *self)
+ * \memberof IterableNode
+ * \brief Get a new reference on encapsulated data.
+ * \param self IterableNode instance.
+ * \return New reference on encapsulated data.
+ */
+typedef void *(*IterableNode_data_m) (const void *);
 
 /**
  * \fn void *Iterator::__constructor__ (void *self, const void *iterable)
@@ -64,7 +114,7 @@ typedef void *(*Iterable_next_m) (void *, const void *);
  * \param self Iterator object.
  * \return Next item or ``NULL`` if no more items.
  *
- * Calls ``Iteratable::next()``.
+ * Calls ``Iterable::next()``.
  */
 typedef void *(*Iterator_next_m) (void *);
 

@@ -14,7 +14,13 @@
 static void *Iterable_constructor (void *_self, va_list *app);
 static void *Iterable_destructor (void *_self);
 
-static void *Iterable_next (void *_self, const void *iterator);
+static bool Iterable_contains (const void *_self, const void *item);
+static void Iterable_clear (void *_self);
+static void *Iterable_next (const void *_self, const void *iterator);
+
+static void *IterableNode_constructor (void *_self, va_list *app);
+static void *IterableNode_destructor (void *_self);
+static void *IterableNode_data (const void *_self);
 
 static void *Iterator_constructor (void *_self, va_list *app);
 static void *Iterator_destructor (void *_self);

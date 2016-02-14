@@ -18,7 +18,21 @@ OODUCK_DEFINE_CLASS (
         Object (), sizeof (struct Iterable),
         "__constructor__", Iterable_constructor,
         "__destructor__", Iterable_destructor,
+        "contains", Iterable_contains,
+        "clear", Iterable_clear,
         "next", Iterable_next,
+        NULL
+    )
+)
+
+OODUCK_DEFINE_CLASS (
+    IterableNode,
+    new (
+        Class (), "IterableNode",
+        Object (), sizeof (struct IterableNode),
+        "__constructor__", IterableNode_constructor,
+        "__destructor__", IterableNode_destructor,
+        "data", IterableNode_data,
         NULL
     )
 )
@@ -59,10 +73,48 @@ static void *Iterable_destructor (void *_self)
     return dtor (self);
 }
 
-static void *Iterable_next (void *_self, const void *iterator)
+static bool Iterable_contains (const void *_self, const void *item)
+{
+    throw (NotImplementedError, "Iterable: contains() method not implemented");
+    return false;
+}
+
+static void Iterable_clear (void *_self)
+{
+    throw (NotImplementedError, "Iterable: clear() method not implemented");
+}
+
+static void *Iterable_next (const void *_self, const void *iterator)
 {
     throw (NotImplementedError, "Iterable: next() method not implemented");
     return NULL;
+}
+
+static void *IterableNode_constructor (void *_self, va_list *app)
+{
+    void *data = va_arg (*app, void *);
+    Class_constructor_m ctor = method (super (IterableNode ()), "__constructor__");
+    struct IterableNode *self = ctor (_self, app);
+    self->data = ref (cast (Object (), data));
+
+    return self;
+}
+
+static void *IterableNode_destructor (void *_self)
+{
+    struct IterableNode *self = cast (IterableNode (), _self);
+    Class_destructor_m dtor = method (super (IterableNode ()), "__destructor__");
+
+    unref (self->data);
+
+    return dtor (self);
+}
+
+static void *IterableNode_data (const void *_self)
+{
+    struct IterableNode *self = cast (IterableNode (), _self);
+    
+    return ref (self->data);
 }
 
 static void *Iterator_constructor (void *_self, va_list *app)
@@ -91,10 +143,11 @@ static void *Iterator_next (void *_self)
 {
     struct Iterator *self = cast (Iterator (), _self);
     Iterable_next_m nextm = method (classOf (self->iterable), "next");
+    Iterator_get_m get = method (classOf (self), "get");
 
     self->current = nextm (self->iterable, self);
 
-    return Iterator_get (self);
+    return get (self);
 }
 
 static void *Iterator_get (const void *_self)

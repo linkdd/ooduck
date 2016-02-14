@@ -14,7 +14,9 @@
 static void *Hashmap_constructor (void *_self, va_list *app);
 static void *Hashmap_destructor (void *_self);
 
-static void *Hashmap_next (void *_self, const void *iterator);
+static bool Hashmap_contains (const void *_self, const void *key);
+static void Hashmap_clear (void *_self);
+static void *Hashmap_next (const void *_self, const void *iterator);
 static void *Hashmap_get (const void *_self, const void *key);
 static void Hashmap_set (void *_self, const void *key, void *value);
 static void Hashmap_del (void *_self, const void *key);
