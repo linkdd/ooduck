@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">OODuck
-   &#160;<span id="projectnumber">0.4.1</span>
+   &#160;<span id="projectnumber">0.5</span>
    </div>
    <div id="projectbrief">C Oriented Object framework with duck-typing support</div>
   </td>
@@ -115,6 +115,9 @@ $(document).ready(function(){initNavTree('index.html','');});
 <h2>Build library</h2>
 <p>Build system is based on CMake: </p><pre class="fragment">$ mkdir __build__ &amp;&amp; cd __build__
 $ cmake ..
+$ make
+</pre><p>With multi-threading support: </p><pre class="fragment">$ mkdir __build__ &amp;&amp; cd __build__
+$ cmake .. -DWITH_PTHREAD=1
 $ make
 </pre><p>Or in debug mode: </p><pre class="fragment">$ mkdir __build__ &amp;&amp; cd __build__
 $ cmake .. -DWITH_DEBUG=1

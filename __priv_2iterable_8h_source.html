@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">OODuck
-   &#160;<span id="projectnumber">0.4.1</span>
+   &#160;<span id="projectnumber">0.5</span>
    </div>
    <div id="projectbrief">C Oriented Object framework with duck-typing support</div>
   </td>
@@ -119,13 +119,19 @@ $(document).ready(function(){initNavTree('__priv_2iterable_8h_source.html','');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterable_constructor (<span class="keywordtype">void</span> *_self, va_list *app);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterable_destructor (<span class="keywordtype">void</span> *_self);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterable_next (<span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *iterator);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterator_constructor (<span class="keywordtype">void</span> *_self, va_list *app);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterator_destructor (<span class="keywordtype">void</span> *_self);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterator_next (<span class="keywordtype">void</span> *_self);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterator_get (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> Iterable_contains (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *item);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> Iterable_clear (<span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterable_next (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *iterator);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *IterableNode_constructor (<span class="keywordtype">void</span> *_self, va_list *app);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *IterableNode_destructor (<span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *IterableNode_data (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterator_constructor (<span class="keywordtype">void</span> *_self, va_list *app);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterator_destructor (<span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterator_next (<span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *Iterator_get (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self);</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

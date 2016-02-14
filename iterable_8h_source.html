@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">OODuck
-   &#160;<span id="projectnumber">0.4.1</span>
+   &#160;<span id="projectnumber">0.5</span>
    </div>
    <div id="projectbrief">C Oriented Object framework with duck-typing support</div>
   </td>
@@ -118,16 +118,25 @@ $(document).ready(function(){initNavTree('iterable_8h_source.html','');});
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;OODUCK_DECLARE_CLASS (<a class="code" href="struct_iterable.html">Iterable</a>);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;OODUCK_DECLARE_CLASS (<a class="code" href="struct_iterator.html">Iterator</a>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*Iterable_next_m) (<span class="keywordtype">void</span> *, <span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*Iterator_next_m) (<span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;OODUCK_DECLARE_CLASS (<a class="code" href="struct_iterable_node.html">IterableNode</a>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;OODUCK_DECLARE_CLASS (<a class="code" href="struct_iterator.html">Iterator</a>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">typedef</span> bool (*Iterable_contains_m) (<span class="keyword">const</span> <span class="keywordtype">void</span> *, <span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">typedef</span> void (*Iterable_clear_m) (<span class="keywordtype">void</span> *);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*Iterator_get_m) (<span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OODUCK_ITERABLE_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="struct_iterator_html"><div class="ttname"><a href="struct_iterator.html">Iterator</a></div><div class="ttdoc">Object used to iterate over Iterable. </div><div class="ttdef"><b>Definition:</b> iterable.h:21</div></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*Iterable_next_m) (<span class="keyword">const</span> <span class="keywordtype">void</span> *, <span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*IterableNode_data_m) (<span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*Iterator_next_m) (<span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*Iterator_get_m) (<span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OODUCK_ITERABLE_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="struct_iterable_node_html"><div class="ttname"><a href="struct_iterable_node.html">IterableNode</a></div><div class="ttdoc">Abstract class to encapsulate item objects. </div><div class="ttdef"><b>Definition:</b> iterable.h:21</div></div>
+<div class="ttc" id="struct_iterator_html"><div class="ttname"><a href="struct_iterator.html">Iterator</a></div><div class="ttdoc">Object used to iterate over Iterable. </div><div class="ttdef"><b>Definition:</b> iterable.h:28</div></div>
 <div class="ttc" id="struct_iterable_html"><div class="ttname"><a href="struct_iterable.html">Iterable</a></div><div class="ttdoc">Abstract class which allow to iterate over object. </div><div class="ttdef"><b>Definition:</b> iterable.h:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

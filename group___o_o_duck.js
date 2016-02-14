@@ -2,14 +2,9 @@ var group___o_o_duck =
 [
     [ "Collection", "struct_collection.html", [
       [ "add", "struct_collection.html#aa17c38ee4d6a6699c5087acccfb7bc16", null ],
-      [ "clear", "struct_collection.html#ae2edab0b1f75be95a058d5732ceb5ef9", null ],
-      [ "contains", "struct_collection.html#a228c79de2fadd4d68ecfe18095a7a423", null ],
       [ "del", "struct_collection.html#a9fc00c2e02373c7578653921386addbe", null ]
     ] ],
-    [ "Item", "struct_item.html", [
-      [ "__constructor__", "struct_item.html#abadfa85fced518001f3a186830fee0ff", null ],
-      [ "deref", "struct_item.html#a7a37e36cc3e927cf405c600ca99dcaf0", null ]
-    ] ],
+    [ "CollectionNode", "class_collection_node.html", null ],
     [ "RuntimeError", "class_runtime_error.html", null ],
     [ "NotImplementedError", "class_not_implemented_error.html", null ],
     [ "AbstractError", "class_abstract_error.html", null ],
@@ -18,7 +13,13 @@ var group___o_o_duck =
       [ "values", "struct_hashmap.html#a3febb1c8dd3425ac956726e01aa762bd", null ]
     ] ],
     [ "Iterable", "struct_iterable.html", [
-      [ "next", "struct_iterable.html#a6e5e0c22d88ad1c0e5819442611bd2e3", null ]
+      [ "clear", "struct_iterable.html#ae2edab0b1f75be95a058d5732ceb5ef9", null ],
+      [ "contains", "struct_iterable.html#a152ee7ff3191750931c7b7a8b59ebb4f", null ],
+      [ "next", "struct_iterable.html#aa83bc5dd39d3afb5a6dc11d3a10b29d2", null ]
+    ] ],
+    [ "IterableNode", "struct_iterable_node.html", [
+      [ "__constructor__", "struct_iterable_node.html#a7d6064eed539d005922cf9c26b801ae1", null ],
+      [ "data", "struct_iterable_node.html#a4253085231cdc8c12d26f98bf6e6b67f", null ]
     ] ],
     [ "Iterator", "struct_iterator.html", [
       [ "__constructor__", "struct_iterator.html#a74a9644e1ab10392dff05894c9b524d7", null ],
@@ -26,13 +27,14 @@ var group___o_o_duck =
       [ "next", "struct_iterator.html#a49c9d6bf1629831293597cff64a7182e", null ]
     ] ],
     [ "List", "struct_list.html", [
-      [ "append", "struct_list.html#a4f3cd0d32db5ea71e12a83a94f3048bb", null ],
+      [ "append", "struct_list.html#ae8ba69dc8593e7da38ef92f0c2583b00", null ],
       [ "get", "struct_list.html#a505a7a0e327e554d205fd6b85830ae0b", null ],
-      [ "insert", "struct_list.html#a5a6b7a5a048678e3c73294053da4d954", null ],
+      [ "insert", "struct_list.html#a6532fa995844c8ab931936fa7f52fdff", null ],
       [ "length", "struct_list.html#a391728ef328d7ffac722ac36fe2fe998", null ],
       [ "pop", "struct_list.html#a7eec11a31b7215eb677fb5e63729c799", null ],
-      [ "preprend", "struct_list.html#a668d772c567bee42de7a53f6802dc0e0", null ]
+      [ "preprend", "struct_list.html#ae5c14c1805b2de119d2184fdb006f83a", null ]
     ] ],
+    [ "ListNode", "class_list_node.html", null ],
     [ "Object", "struct_object.html", [
       [ "equal", "struct_object.html#a2ec84eec3fa9f5ee777f370b3f292dd8", null ],
       [ "ref", "struct_object.html#a0db258b1b2c81f071319d5b4430510ea", null ],

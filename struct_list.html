@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">OODuck
-   &#160;<span id="projectnumber">0.4.1</span>
+   &#160;<span id="projectnumber">0.5</span>
    </div>
    <div id="projectbrief">C Oriented Object framework with duck-typing support</div>
   </td>
@@ -123,9 +123,8 @@ Inheritance diagram for List:</div>
  <div class="center">
   <img src="struct_list.png" usemap="#List_map" alt=""/>
   <map id="List_map" name="List_map">
-<area href="struct_collection.html" title="Collection of item. " alt="Collection" shape="rect" coords="0,112,68,136"/>
-<area href="struct_iterable.html" title="Abstract class which allow to iterate over object. " alt="Iterable" shape="rect" coords="0,56,68,80"/>
-<area href="struct_object.html" title="Base class for everything. " alt="Object" shape="rect" coords="0,0,68,24"/>
+<area href="struct_iterable.html" title="Abstract class which allow to iterate over object. " alt="Iterable" shape="rect" coords="0,56,54,80"/>
+<area href="struct_object.html" title="Base class for everything. " alt="Object" shape="rect" coords="0,0,54,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -137,34 +136,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a505a7a0e327e554d205fd6b85830ae0b"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_list.html#a505a7a0e327e554d205fd6b85830ae0b">get</a> (const void *self, int idx)</td></tr>
 <tr class="memdesc:a505a7a0e327e554d205fd6b85830ae0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get list item.  <a href="#a505a7a0e327e554d205fd6b85830ae0b">More...</a><br /></td></tr>
 <tr class="separator:a505a7a0e327e554d205fd6b85830ae0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f3cd0d32db5ea71e12a83a94f3048bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_list.html#a4f3cd0d32db5ea71e12a83a94f3048bb">append</a> (void *self, void *obj)</td></tr>
-<tr class="memdesc:a4f3cd0d32db5ea71e12a83a94f3048bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append object to list.  <a href="#a4f3cd0d32db5ea71e12a83a94f3048bb">More...</a><br /></td></tr>
-<tr class="separator:a4f3cd0d32db5ea71e12a83a94f3048bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a668d772c567bee42de7a53f6802dc0e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_list.html#a668d772c567bee42de7a53f6802dc0e0">preprend</a> (void *self, void *obj)</td></tr>
-<tr class="memdesc:a668d772c567bee42de7a53f6802dc0e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepend object to list.  <a href="#a668d772c567bee42de7a53f6802dc0e0">More...</a><br /></td></tr>
-<tr class="separator:a668d772c567bee42de7a53f6802dc0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a6b7a5a048678e3c73294053da4d954"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_list.html#a5a6b7a5a048678e3c73294053da4d954">insert</a> (void *self, int i, void *obj)</td></tr>
-<tr class="memdesc:a5a6b7a5a048678e3c73294053da4d954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert object into list.  <a href="#a5a6b7a5a048678e3c73294053da4d954">More...</a><br /></td></tr>
-<tr class="separator:a5a6b7a5a048678e3c73294053da4d954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8ba69dc8593e7da38ef92f0c2583b00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_list.html#ae8ba69dc8593e7da38ef92f0c2583b00">append</a> (void *self, const void *obj)</td></tr>
+<tr class="memdesc:ae8ba69dc8593e7da38ef92f0c2583b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append object to list.  <a href="#ae8ba69dc8593e7da38ef92f0c2583b00">More...</a><br /></td></tr>
+<tr class="separator:ae8ba69dc8593e7da38ef92f0c2583b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5c14c1805b2de119d2184fdb006f83a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_list.html#ae5c14c1805b2de119d2184fdb006f83a">preprend</a> (void *self, const void *obj)</td></tr>
+<tr class="memdesc:ae5c14c1805b2de119d2184fdb006f83a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepend object to list.  <a href="#ae5c14c1805b2de119d2184fdb006f83a">More...</a><br /></td></tr>
+<tr class="separator:ae5c14c1805b2de119d2184fdb006f83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6532fa995844c8ab931936fa7f52fdff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_list.html#a6532fa995844c8ab931936fa7f52fdff">insert</a> (void *self, int i, const void *obj)</td></tr>
+<tr class="memdesc:a6532fa995844c8ab931936fa7f52fdff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert object into list.  <a href="#a6532fa995844c8ab931936fa7f52fdff">More...</a><br /></td></tr>
+<tr class="separator:a6532fa995844c8ab931936fa7f52fdff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7eec11a31b7215eb677fb5e63729c799"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_list.html#a7eec11a31b7215eb677fb5e63729c799">pop</a> (const void *self, int i)</td></tr>
 <tr class="memdesc:a7eec11a31b7215eb677fb5e63729c799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove object from list and return it.  <a href="#a7eec11a31b7215eb677fb5e63729c799">More...</a><br /></td></tr>
 <tr class="separator:a7eec11a31b7215eb677fb5e63729c799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_struct_collection"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_collection')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_collection.html">Collection</a></td></tr>
-<tr class="memitem:ae2edab0b1f75be95a058d5732ceb5ef9 inherit pub_methods_struct_collection"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_collection.html#ae2edab0b1f75be95a058d5732ceb5ef9">clear</a> (void *self)</td></tr>
-<tr class="memdesc:ae2edab0b1f75be95a058d5732ceb5ef9 inherit pub_methods_struct_collection"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all items from collection.  <a href="#ae2edab0b1f75be95a058d5732ceb5ef9">More...</a><br /></td></tr>
-<tr class="separator:ae2edab0b1f75be95a058d5732ceb5ef9 inherit pub_methods_struct_collection"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa17c38ee4d6a6699c5087acccfb7bc16 inherit pub_methods_struct_collection"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_collection.html#aa17c38ee4d6a6699c5087acccfb7bc16">add</a> (void *self, const void *object)</td></tr>
-<tr class="memdesc:aa17c38ee4d6a6699c5087acccfb7bc16 inherit pub_methods_struct_collection"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add object to collection if not already in it.  <a href="#aa17c38ee4d6a6699c5087acccfb7bc16">More...</a><br /></td></tr>
-<tr class="separator:aa17c38ee4d6a6699c5087acccfb7bc16 inherit pub_methods_struct_collection"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fc00c2e02373c7578653921386addbe inherit pub_methods_struct_collection"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_collection.html#a9fc00c2e02373c7578653921386addbe">del</a> (void *self, const void *object)</td></tr>
-<tr class="memdesc:a9fc00c2e02373c7578653921386addbe inherit pub_methods_struct_collection"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove item from collection.  <a href="#a9fc00c2e02373c7578653921386addbe">More...</a><br /></td></tr>
-<tr class="separator:a9fc00c2e02373c7578653921386addbe inherit pub_methods_struct_collection"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a228c79de2fadd4d68ecfe18095a7a423 inherit pub_methods_struct_collection"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_collection.html#a228c79de2fadd4d68ecfe18095a7a423">contains</a> (void *self, const void *object)</td></tr>
-<tr class="memdesc:a228c79de2fadd4d68ecfe18095a7a423 inherit pub_methods_struct_collection"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if <code>object</code> is in the collection.  <a href="#a228c79de2fadd4d68ecfe18095a7a423">More...</a><br /></td></tr>
-<tr class="separator:a228c79de2fadd4d68ecfe18095a7a423 inherit pub_methods_struct_collection"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_struct_iterable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_iterable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_iterable.html">Iterable</a></td></tr>
-<tr class="memitem:a6e5e0c22d88ad1c0e5819442611bd2e3 inherit pub_methods_struct_iterable"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_iterable.html#a6e5e0c22d88ad1c0e5819442611bd2e3">next</a> (void *self, const void *iterator)</td></tr>
-<tr class="separator:a6e5e0c22d88ad1c0e5819442611bd2e3 inherit pub_methods_struct_iterable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152ee7ff3191750931c7b7a8b59ebb4f inherit pub_methods_struct_iterable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_iterable.html#a152ee7ff3191750931c7b7a8b59ebb4f">contains</a> (const void *self, const void *object)</td></tr>
+<tr class="memdesc:a152ee7ff3191750931c7b7a8b59ebb4f inherit pub_methods_struct_iterable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if <code>object</code> is in the collection.  <a href="#a152ee7ff3191750931c7b7a8b59ebb4f">More...</a><br /></td></tr>
+<tr class="separator:a152ee7ff3191750931c7b7a8b59ebb4f inherit pub_methods_struct_iterable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2edab0b1f75be95a058d5732ceb5ef9 inherit pub_methods_struct_iterable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_iterable.html#ae2edab0b1f75be95a058d5732ceb5ef9">clear</a> (void *self)</td></tr>
+<tr class="memdesc:ae2edab0b1f75be95a058d5732ceb5ef9 inherit pub_methods_struct_iterable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all items from iterable.  <a href="#ae2edab0b1f75be95a058d5732ceb5ef9">More...</a><br /></td></tr>
+<tr class="separator:ae2edab0b1f75be95a058d5732ceb5ef9 inherit pub_methods_struct_iterable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa83bc5dd39d3afb5a6dc11d3a10b29d2 inherit pub_methods_struct_iterable"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_iterable.html#aa83bc5dd39d3afb5a6dc11d3a10b29d2">next</a> (const void *self, const void *iterator)</td></tr>
+<tr class="separator:aa83bc5dd39d3afb5a6dc11d3a10b29d2 inherit pub_methods_struct_iterable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_struct_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_struct_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="struct_object.html">Object</a></td></tr>
 <tr class="memitem:a0db258b1b2c81f071319d5b4430510ea inherit pub_methods_struct_object"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_object.html#a0db258b1b2c81f071319d5b4430510ea">ref</a> (void *self)</td></tr>
 <tr class="memdesc:a0db258b1b2c81f071319d5b4430510ea inherit pub_methods_struct_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment object's reference counter.  <a href="#a0db258b1b2c81f071319d5b4430510ea">More...</a><br /></td></tr>
@@ -179,7 +171,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="struct_list.html" title="List implementation. ">List</a> implementation. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a4f3cd0d32db5ea71e12a83a94f3048bb"></a>
+<a class="anchor" id="ae8ba69dc8593e7da38ef92f0c2583b00"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -192,7 +184,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *&#160;</td>
+          <td class="paramtype">const void *&#160;</td>
           <td class="paramname"><em>obj</em>&#160;</td>
         </tr>
         <tr>
@@ -242,15 +234,15 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">self</td><td><a class="el" href="struct_list.html" title="List implementation. ">List</a> object. </td></tr>
-    <tr><td class="paramname">idx</td><td><a class="el" href="struct_item.html" title="Collection item. ">Item</a> index. </td></tr>
+    <tr><td class="paramname">idx</td><td>Item index. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_item.html" title="Collection item. ">Item</a> object. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Item object. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a5a6b7a5a048678e3c73294053da4d954"></a>
+<a class="anchor" id="a6532fa995844c8ab931936fa7f52fdff"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -269,7 +261,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *&#160;</td>
+          <td class="paramtype">const void *&#160;</td>
           <td class="paramname"><em>obj</em>&#160;</td>
         </tr>
         <tr>
@@ -349,11 +341,11 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_item.html" title="Collection item. ">Item</a> object. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Item object. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a668d772c567bee42de7a53f6802dc0e0"></a>
+<a class="anchor" id="ae5c14c1805b2de119d2184fdb006f83a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -366,7 +358,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *&#160;</td>
+          <td class="paramtype">const void *&#160;</td>
           <td class="paramname"><em>obj</em>&#160;</td>
         </tr>
         <tr>

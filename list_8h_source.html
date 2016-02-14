@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">OODuck
-   &#160;<span id="projectnumber">0.4.1</span>
+   &#160;<span id="projectnumber">0.5</span>
    </div>
    <div id="projectbrief">C Oriented Object framework with duck-typing support</div>
   </td>
@@ -118,20 +118,23 @@ $(document).ready(function(){initNavTree('list_8h_source.html','');});
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;OODUCK_DECLARE_CLASS (<a class="code" href="struct_list.html">List</a>);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">typedef</span> size_t (*List_length) (<span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*List_get) (<span class="keyword">const</span> <span class="keywordtype">void</span> *, int);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">typedef</span> void (*List_append) (<span class="keywordtype">void</span> *, <span class="keywordtype">void</span> *);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">typedef</span> void (*List_prepend) (<span class="keywordtype">void</span> *, <span class="keywordtype">void</span> *);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">typedef</span> void (*List_insert) (<span class="keywordtype">void</span> *, int, <span class="keywordtype">void</span> *);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*List_pop) (<span class="keywordtype">void</span> *, int);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OODUCK_LIST_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="struct_list_html"><div class="ttname"><a href="struct_list.html">List</a></div><div class="ttdoc">List implementation. </div><div class="ttdef"><b>Definition:</b> list.h:16</div></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;OODUCK_DECLARE_CLASS (<a class="code" href="class_list_node.html">ListNode</a>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">typedef</span> size_t (*List_length_m) (<span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*List_get_m) (<span class="keyword">const</span> <span class="keywordtype">void</span> *, int);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">typedef</span> void (*List_append_m) (<span class="keywordtype">void</span> *, <span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">typedef</span> void (*List_prepend_m) (<span class="keywordtype">void</span> *, <span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">typedef</span> void (*List_insert_m) (<span class="keywordtype">void</span> *, int, <span class="keyword">const</span> <span class="keywordtype">void</span> *);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*List_pop_m) (<span class="keywordtype">void</span> *, int);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OODUCK_LIST_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_list_node_html"><div class="ttname"><a href="class_list_node.html">ListNode</a></div><div class="ttdoc">ListNode implementation. </div></div>
+<div class="ttc" id="struct_list_html"><div class="ttname"><a href="struct_list.html">List</a></div><div class="ttdoc">List implementation. </div><div class="ttdef"><b>Definition:</b> list.h:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

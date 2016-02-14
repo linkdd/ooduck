@@ -5,9 +5,10 @@ var searchData=
   ['cause',['cause',['../structe4c__exception__.html#a639c871645130ab992e1537417aa5a1c',1,'e4c_exception_']]],
   ['class',['Class',['../struct_class.html',1,'']]],
   ['classof',['classOf',['../group__static.html#gaeb8ced368e768c5b59f32518476108a4',1,'object.h']]],
-  ['clear',['clear',['../struct_collection.html#ae2edab0b1f75be95a058d5732ceb5ef9',1,'Collection']]],
+  ['clear',['clear',['../struct_iterable.html#ae2edab0b1f75be95a058d5732ceb5ef9',1,'Iterable']]],
   ['collection',['Collection',['../struct_collection.html',1,'']]],
-  ['contains',['contains',['../struct_collection.html#a228c79de2fadd4d68ecfe18095a7a423',1,'Collection']]],
+  ['collectionnode',['CollectionNode',['../class_collection_node.html',1,'']]],
+  ['contains',['contains',['../struct_iterable.html#a152ee7ff3191750931c7b7a8b59ebb4f',1,'Iterable']]],
   ['copy',['copy',['../struct_string.html#ab05224db129423a033ee8ee3311ad4b5',1,'String']]],
   ['cstr',['cstr',['../struct_string.html#a54025e601e51b86932da9b8745d9d943',1,'String']]],
   ['custom_5fdata',['custom_data',['../structe4c__exception__.html#afdff5af3161edda0a23bf19de1764f74',1,'e4c_exception_']]]

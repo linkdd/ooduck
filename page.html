@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">OODuck
-   &#160;<span id="projectnumber">0.4.1</span>
+   &#160;<span id="projectnumber">0.5</span>
    </div>
    <div id="projectbrief">C Oriented Object framework with duck-typing support</div>
   </td>
@@ -171,14 +171,14 @@ $(document).ready(function(){initNavTree('page.html','');});
 <div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> *MyClass_constructor (<span class="keywordtype">void</span> *_self, va_list *app)</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">/* get constructor arguments */</span></div>
-<div class="line">    <span class="keywordtype">int</span> data = va_arg (*app, <span class="keywordtype">int</span>);</div>
+<div class="line">    <span class="keywordtype">int</span> <a class="code" href="struct_iterable_node.html#a4253085231cdc8c12d26f98bf6e6b67f">data</a> = va_arg (*app, <span class="keywordtype">int</span>);</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">/* call parent constructor */</span></div>
 <div class="line">    Class_constructor_m ctor = <a class="code" href="group__static.html#gabb9e3d17823733a769c30ab006146fde">method</a> (<a class="code" href="group__static.html#gaf5d6e937d52fcf457bb9e1a850cafc23">super</a> (MyClass ()), <span class="stringliteral">&quot;__constructor__&quot;</span>);</div>
 <div class="line">    <span class="keyword">struct </span>MyClass *<span class="keyword">self</span> = ctor (_self, app);</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">/* do your stuff */</span></div>
-<div class="line">    <span class="keyword">self</span>-&gt;mydata = data;</div>
+<div class="line">    <span class="keyword">self</span>-&gt;mydata = <a class="code" href="struct_iterable_node.html#a4253085231cdc8c12d26f98bf6e6b67f">data</a>;</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">self</span>;</div>
 <div class="line">}</div>
@@ -207,11 +207,7 @@ $(document).ready(function(){initNavTree('page.html','');});
 <div class="line">MyClass_my_method_m my_method = <a class="code" href="group__static.html#gabb9e3d17823733a769c30ab006146fde">method</a> (<a class="code" href="group__static.html#gaeb8ced368e768c5b59f32518476108a4">classOf</a> (obj), <span class="stringliteral">&quot;my_method&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><a class="code" href="group__exceptions4c.html#gacdcc5aaebf3f273c1762f24a6ece2e5e">assert</a> (my_method (obj) == 42);</div>
-</div><!-- fragment --><h2>Important notes</h2>
-<p>As you can see, we define our class in a <code>static</code> global variable, and make it accessible with a function.</p>
-<p>This is not <b>thread-safe</b> at all. You will need to call this function for each class you use <b>before</b> starting new threads.</p>
-<p>In a later release, I would like to implement a <b>lock-free</b> algorithm with a set of <em>macros</em>, in order to ease the implementation. </p>
-</div></div><!-- contents -->
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

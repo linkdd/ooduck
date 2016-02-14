@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">OODuck
-   &#160;<span id="projectnumber">0.4.1</span>
+   &#160;<span id="projectnumber">0.5</span>
    </div>
    <div id="projectbrief">C Oriented Object framework with duck-typing support</div>
   </td>
@@ -119,13 +119,21 @@ $(document).ready(function(){initNavTree('__priv_2list_8h_source.html','');});
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *List_constructor (<span class="keywordtype">void</span> *_self, va_list *app);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *List_destructor (<span class="keywordtype">void</span> *_self);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">static</span> <span class="keywordtype">size_t</span> List_length (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *List_get (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keywordtype">int</span> idx);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> List_append (<span class="keywordtype">void</span> *_self, <span class="keywordtype">void</span> *value);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> List_prepend (<span class="keywordtype">void</span> *_self, <span class="keywordtype">void</span> *value);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> List_insert (<span class="keywordtype">void</span> *_self, <span class="keywordtype">int</span> idx, <span class="keywordtype">void</span> *value);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *List_pop (<span class="keywordtype">void</span> *_self, <span class="keywordtype">int</span> idx);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> List_contains (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *item);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> List_clear (<span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *List_next (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *iterator);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">static</span> <span class="keywordtype">size_t</span> List_length (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *List_get (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keywordtype">int</span> idx);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> List_append (<span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *value);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> List_prepend (<span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *value);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> List_insert (<span class="keywordtype">void</span> *_self, <span class="keywordtype">int</span> idx, <span class="keyword">const</span> <span class="keywordtype">void</span> *value);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *List_pop (<span class="keywordtype">void</span> *_self, <span class="keywordtype">int</span> idx);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *_List_new_node (<span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *item);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *_List_get_node_by_idx (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keywordtype">int</span> idx);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> *_List_get_node_by_item (<span class="keyword">const</span> <span class="keywordtype">void</span> *_self, <span class="keyword">const</span> <span class="keywordtype">void</span> *item);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> _List_del_node (<span class="keywordtype">void</span> *_self, <span class="keywordtype">void</span> *_node);</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

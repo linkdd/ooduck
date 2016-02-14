@@ -7,12 +7,14 @@ var hierarchy =
       [ "Class", "struct_class.html", [
         [ "Singleton", "struct_singleton.html", null ]
       ] ],
-      [ "Item", "struct_item.html", null ],
       [ "Iterable", "struct_iterable.html", [
-        [ "Collection", "struct_collection.html", [
-          [ "List", "struct_list.html", null ]
-        ] ],
-        [ "Hashmap", "struct_hashmap.html", null ]
+        [ "Collection", "struct_collection.html", null ],
+        [ "Hashmap", "struct_hashmap.html", null ],
+        [ "List", "struct_list.html", null ]
+      ] ],
+      [ "IterableNode", "struct_iterable_node.html", [
+        [ "CollectionNode", "class_collection_node.html", null ],
+        [ "ListNode", "class_list_node.html", null ]
       ] ],
       [ "Iterator", "struct_iterator.html", null ],
       [ "String", "struct_string.html", null ],
