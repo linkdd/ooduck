@@ -15,7 +15,7 @@ struct
 {
     Collection_add_m add;
     Collection_del_m del;
-    Collection_contains_m contains;
+    Iterable_contains_m contains;
     Iterator_next_m next;
 
     void *col;
@@ -62,7 +62,6 @@ static void test_collection (void)
 static void test_iterable (void)
 {
     String_cstr_m cstr;
-    Item_deref_m deref;
 
     void *item = NULL;
 
@@ -76,13 +75,8 @@ static void test_iterable (void)
 
     while ((item = global.next (global.it)) != NULL)
     {
-        void *itemstr = NULL;
-
-        deref = method (classOf (item), "deref");
-        itemstr = deref (item);
-
-        cstr = method (classOf (itemstr), "cstr");
-        printf ("%s ", cstr (itemstr));
+        cstr = method (classOf (item), "cstr");
+        printf ("%s ", cstr (item));
     }
 
     printf ("\n");
@@ -137,6 +131,7 @@ static struct
 
 int main (int argc, char *argv[])
 {
+    int result = EXIT_SUCCESS;
     int i;
 
     ooduck_init ();
@@ -155,7 +150,8 @@ int main (int argc, char *argv[])
     catch (RuntimeException)
     {
         e4c_print_exception (e4c_get_exception ());
+        result = EXIT_FAILURE;
     }
 
-    return 0;
+    return result;
 }

@@ -18,6 +18,13 @@ struct Iterable
     struct Object _;
 };
 
+struct IterableNode
+{
+    struct Object _;
+
+    void *data;
+};
+
 struct Iterator
 {
     struct Object _;

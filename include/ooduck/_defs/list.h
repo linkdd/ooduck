@@ -1,4 +1,4 @@
-/* _defs/collection.h -- This file is part of ooduck
+/* _defs/list.h -- This file is part of ooduck
  *
  * Copyright (C) 2015 David Delassus <david.jose.delassus@gmail.com>
  *
@@ -6,26 +6,27 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 
-#ifndef __OODUCK_DEF_COLLECTION_H
-#define __OODUCK_DEF_COLLECTION_H
+#ifndef __OODUCK_DEF_LIST_H
+#define __OODUCK_DEF_LIST_H
 
 /* definitions */
 
 #include <ooduck/_defs/iterable.h>
 #include <sys/queue.h>
 
-typedef struct CollectionNode_t
+typedef struct ListNode_t
 {
     struct IterableNode _;
 
-    SLIST_ENTRY (CollectionNode_t) next;
-} CollectionNode_t;
+    TAILQ_ENTRY (ListNode_t) next;
+} ListNode_t;
 
-struct Collection
+struct List
 {
     struct Iterable _;
 
-    SLIST_HEAD (, CollectionNode_t) items;
+    TAILQ_HEAD (ListNodes, ListNode_t) items;
+    size_t length;
 };
 
-#endif /* __OODUCK_DEF_COLLECTION_H */
+#endif /* __OODUCK_DEF_LIST_H */

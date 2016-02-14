@@ -18,23 +18,20 @@ OODUCK_DEFINE_CLASS (
         Iterable (), sizeof (struct Collection),
         "__constructor__", Collection_constructor,
         "__destructor__", Collection_destructor,
-        "next", Collection_next,
+        "contains", Collection_contains,
         "clear", Collection_clear,
+        "next", Collection_next,
         "add", Collection_add,
         "del", Collection_del,
-        "contains", Collection_contains,
         NULL
     )
 )
 
 OODUCK_DEFINE_CLASS (
-    Item,
+    CollectionNode,
     new (
-        Class (), "Item",
-        Object (), sizeof (struct Item),
-        "__constructor__", Item_constructor,
-        "__destructor__", Item_destructor,
-        "deref", Item_deref,
+        Class (), "CollectionNode",
+        IterableNode (), sizeof (CollectionNode_t),
         NULL
     )
 )
@@ -46,9 +43,7 @@ static void *Collection_constructor (void *_self, va_list *app)
     Class_constructor_m ctor = method (super (Collection ()), "__constructor__");
     struct Collection *self = ctor (_self, app);
 
-    self->items = NULL;
-    self->head = NULL;
-    self->tail = NULL;
+    SLIST_INIT (&(self->items));
 
     return self;
 }
@@ -57,162 +52,110 @@ static void *Collection_destructor (void *_self)
 {
     struct Collection *self = cast (Collection (), _self);
     Class_destructor_m dtor = method (super (Collection ()), "__destructor__");
-    Collection_clear_m clear = method (classOf (self), "clear");
 
+    Iterable_clear_m clear = method (classOf (self), "clear");
     clear (self);
 
     return dtor (self);
 }
 
-static void *Collection_next (void *_self, const void *iterator)
+static bool Collection_contains (const void *_self, const void *item)
 {
-    struct Collection *self = cast (Collection (), _self);
-    Iterator_get_m getm = method (classOf (iterator), "get");
-    void *current = getm (iterator);
-
-    if (current != NULL)
-    {
-        struct Item *item = cast (Item (), getm (iterator));
-
-        return item->next;
-    }
-
-    return self->items;
+    return (_Collection_get_node (_self, item) != NULL);
 }
 
 static void Collection_clear (void *_self)
 {
     struct Collection *self = cast (Collection (), _self);
 
-    if (self->items != NULL)
+    while (!SLIST_EMPTY (&(self->items)))
     {
-        Collection_del_m del = method (classOf (self), "del");
-
-        while (self->items != NULL)
-        {
-            del (self, Item_deref (self->items));
-        }
+        void *node = SLIST_FIRST (&(self->items));
+        _Collection_del_node (self, node);
     }
+}
+
+static void *Collection_next (const void *_self, const void *iterator)
+{
+    struct Collection *self = cast (Collection (), _self);
+    
+    CollectionNode_t *next_node = NULL;
+
+    Iterator_get_m get = method (classOf (iterator), "get");
+    void *current = get (iterator);
+
+    if (current != NULL)
+    {
+        CollectionNode_t *node = _Collection_get_node (self, current);
+        next_node = SLIST_NEXT (node, next);
+    }
+    else
+    {
+        next_node = SLIST_FIRST (&(self->items));
+    }
+
+    if (next_node != NULL)
+    {
+        IterableNode_data_m data = method (classOf (next_node), "data");
+        return data (next_node);
+    }
+
+    return NULL;
 }
 
 static void Collection_add (void *_self, const void *item)
 {
     struct Collection *self = cast (Collection (), _self);
-    Collection_contains_m contains = method (classOf (self), "contains");
+    Iterable_contains_m contains = method (classOf (self), "contains");
 
     if (!contains (self, item))
     {
-        void *itemobj = new (Item (), item);
-
-        if (self->items == NULL)
-        {
-            self->items = itemobj;
-            self->items->prev = NULL;
-            self->items->next = NULL;
-
-            self->head = self->items;
-            self->tail = self->items;
-        }
-        else
-        {
-            self->tail->next = itemobj;
-            self->tail->next->prev = self->tail;
-            self->tail->next->next = NULL;
-            self->tail = self->tail->next;
-        }
+        CollectionNode_t *node = new (CollectionNode (), item);
+        SLIST_INSERT_HEAD (&(self->items), node, next);
     }
 }
 
 static void Collection_del (void *_self, const void *item)
 {
     struct Collection *self = cast (Collection (), _self);
-    struct Item *itemobj = _Collection_getitem (self, item);
+    Iterable_contains_m contains = method (classOf (self), "contains");
 
-    if (itemobj != NULL)
+    if (contains (self, item))
     {
-        if (itemobj != self->head)
-        {
-            itemobj->prev->next = itemobj->next;
-        }
-        else
-        {
-            self->head = itemobj->next;
-        }
-
-        if (itemobj != self->tail)
-        {
-            itemobj->next->prev = itemobj->prev;
-        }
-        else
-        {
-            self->tail = itemobj->prev;
-        }
-
-        self->items = self->head;
-
-        if (self->head == NULL || self->tail == NULL)
-        {
-            self->items = NULL;
-
-            self->head = self->items;
-            self->tail = self->items;
-        }
-
-        delete (itemobj);
+        void *node = _Collection_get_node (self, item);
+        _Collection_del_node (self, node);
     }
 }
 
-static bool Collection_contains (void *_self, const void *item)
-{
-    return _Collection_getitem (_self, item) != NULL;
-}
-
-static struct Item *_Collection_getitem (void *_self, const void *item)
+static void *_Collection_get_node (const void *_self, const void *item)
 {
     struct Collection *self = cast (Collection (), _self);
-    struct Item *tmp = self->head;
+    CollectionNode_t *node = NULL;
 
-    while (tmp != NULL)
+    SLIST_FOREACH (node, &(self->items), next)
     {
-        Item_deref_m deref = method (classOf (tmp), "deref");
-        void *obj = deref (tmp);
-        Object_equal_m cmp = method (classOf (obj), "equal");
+        IterableNode_data_m data = method (classOf (node), "data");        
+        void *d = data (node);
 
-        if (cmp (obj, item))
+        Object_equal_m cmp = method (classOf (d), "equal");
+        bool found = cmp (d, item);
+
+        unref (d);
+
+        if (found)
         {
-            break;
+            return node;
         }
-
-        tmp = tmp->next;
     }
 
-    return tmp;
+    return NULL;
 }
 
-static void *Item_constructor (void *_self, va_list *app)
+static void _Collection_del_node (void *_self, void *_node)
 {
-    void *obj = va_arg (*app, void *);
-    Class_constructor_m ctor = method (super (Item ()), "__constructor__");
-    struct Item *self = ctor (_self, app);
+    struct Collection *self = cast (Collection (), _self);
+    CollectionNode_t *node = cast (CollectionNode (), _node);
 
-    self->itptr = ref (obj);
-
-    return self;
-}
-
-static void *Item_destructor (void *_self)
-{
-    struct Item *self = cast (Item (), _self);
-    Class_destructor_m dtor = method (super (Item ()), "__destructor__");
-
-    unref (self->itptr);
-
-    return dtor (self);
-}
-
-static void *Item_deref (void *_self)
-{
-    struct Item *self = cast (Item (), _self);
-
-    return self->itptr;
+    SLIST_REMOVE (&(self->items), node, CollectionNode_t, next);
+    delete (node);
 }

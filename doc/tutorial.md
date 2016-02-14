@@ -160,14 +160,3 @@ MyClass_my_method_m my_method = method (classOf (obj), "my_method");
 
 assert (my_method (obj) == 42);
 ~~~~~~~~~~~~~~~
-
-## Important notes
-
-As you can see, we define our class in a ``static`` global variable, and make it
-accessible with a function.
-
-This is not <b>thread-safe</b> at all. You will need to call this function for each
-class you use <b>before</b> starting new threads.
-
-In a later release, I would like to implement a <b>lock-free</b> algorithm with
-a set of <i>macros</i>, in order to ease the implementation.

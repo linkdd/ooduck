@@ -18,6 +18,8 @@ OODUCK_DEFINE_CLASS (
         Iterable (), sizeof (struct Hashmap),
         "__constructor__", Hashmap_constructor,
         "__destructor__", Hashmap_destructor,
+        "contains", Hashmap_contains,
+        "clear", Hashmap_clear,
         "next", Hashmap_next,
         "get", Hashmap_get,
         "set", Hashmap_set,
@@ -52,7 +54,25 @@ static void *Hashmap_destructor (void *_self)
     return dtor (self);
 }
 
-static void *Hashmap_next (void *_self, const void *iterator)
+static bool Hashmap_contains (const void *_self, const void *key)
+{
+    struct Hashmap *self = cast (Hashmap (), _self);
+    Iterable_contains_m contains = method (classOf (self->keys), "contains");
+
+    return contains (self->keys, key);
+}
+
+static void Hashmap_clear (void *_self)
+{
+    struct Hashmap *self = cast (Hashmap (), _self);
+    Iterable_clear_m clearkeys = method (classOf (self->keys), "clear");
+    Iterable_clear_m clearvalues = method (classOf (self->values), "clear");
+
+    clearkeys (self->keys);
+    clearvalues (self->values);
+}
+
+static void *Hashmap_next (const void *_self, const void *iterator)
 {
     struct Hashmap *self = cast (Hashmap (), _self);
     Iterable_next_m next = method (classOf (self->keys), "next");
@@ -94,31 +114,35 @@ static void Hashmap_set (void *_self, const void *key, void *value)
 {
     struct Hashmap *self = cast (Hashmap (), _self);
 
-    Collection_contains_m contains = method (classOf (self->keys), "contains");
-    Collection_add_m add = method (classOf (self->keys), "add");
+    Iterable_contains_m contains = method (classOf (self), "contains");
+    Collection_add_m addkey = method (classOf (self->keys), "add");
+    Collection_add_m addval = method (classOf (self->values), "add");
 
-    if (contains (self->keys, key))
+    if (contains (self, key))
     {
-        Hashmap_del (self, key);
+        Hashmap_del_m del = method (classOf (self), "del");
+        del (self, key);
     }
 
-    add (self->keys, key);
-    add (self->values, value);
+    addkey (self->keys, key);
+    addval (self->values, value);
 }
 
 static void Hashmap_del (void *_self, const void *key)
 {
     struct Hashmap *self = cast (Hashmap (), _self);
 
-    Collection_contains_m contains = method (classOf (self->keys), "contains");
-    Collection_del_m del = method (classOf (self->keys), "del");
+    Iterable_contains_m contains = method (classOf (self), "contains");
 
-    if (contains (self->keys, key))
+    if (contains (self, key))
     {
         Hashmap_get_m get = method (classOf (self), "get");
+        Collection_del_m delkey = method (classOf (self->keys), "del");
+        Collection_del_m delval = method (classOf (self->values), "del");
+
         void *oldvalue = get (self, key);
-        del (self->keys, key);
-        del (self->values, oldvalue);
+        delkey (self->keys, key);
+        delval (self->values, oldvalue);
     }
 }
 

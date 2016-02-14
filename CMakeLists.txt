@@ -47,6 +47,7 @@ add_library (ooduck SHARED
     "${PROJECT_SOURCE_DIR}/src/iterable.c"
     "${PROJECT_SOURCE_DIR}/src/collection.c"
     "${PROJECT_SOURCE_DIR}/src/hashmap.c"
+    "${PROJECT_SOURCE_DIR}/src/list.c"
 )
 
 if (WITH_DEBUG)
@@ -88,6 +89,9 @@ set (HEADERS
     "${PROJECT_SOURCE_DIR}/include/ooduck/hashmap.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/_defs/hashmap.h"
     "${PROJECT_SOURCE_DIR}/include/ooduck/_priv/hashmap.h"
+    "${PROJECT_SOURCE_DIR}/include/ooduck/list.h"
+    "${PROJECT_SOURCE_DIR}/include/ooduck/_defs/list.h"
+    "${PROJECT_SOURCE_DIR}/include/ooduck/_priv/list.h"
 )
 
 install (FILES ${HEADERS} DESTINATION include/ooduck)
