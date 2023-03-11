@@ -52,7 +52,7 @@ To build documentation, you will need ``doxygen`` installed:
 
 Then, open the file ``doc/html/index.html`` in your browser.
 
-Or, take a look at the [online documentation](https://linkdd.github.com/ooduck/)
+Or, take a look at the [online documentation](https://linkdd.github.io/ooduck/)
 
 ## License
 
